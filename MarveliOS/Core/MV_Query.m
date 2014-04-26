@@ -8,7 +8,6 @@
 
 #import "MV_Query.h"
 #import "MV_DownloadManager.h"
-#import <CommonCrypto/CommonDigest.h>
 
 @interface MV_Query ()
 @property (nonatomic, strong) NSString *fragment;
@@ -40,7 +39,7 @@
 }
 
 - (void) continueFetch {
-	[[MV_DownloadManager defaultManager] downloadRequest: self.request withCompletion:^(NSDictionary *results, NSError *error) {
+	[[MV_DownloadManager defaultManager] downloadJSON: self.URL withCompletion:^(NSDictionary *results, NSError *error) {
 		if (results) {
 			self.attributionText = results[@"attributionText"];
 			self.attributionHTML = results[@"attributionHTML"];
@@ -68,51 +67,16 @@
 
 - (NSArray *) results { return self.collectedResults; }
 
-- (NSURLRequest *) request {
-	if ([MV_DownloadManager defaultManager].privateAPIKey.length == 0 || [MV_DownloadManager defaultManager].publicAPIKey.length == 0) {
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[UIAlertView showAlertWithTitle: @"Missing API Keys" message: @"Please set the publicAPIKey and privateAPIKey property on [MV_DownloadManager defaultManager]."];
-		});
-		return nil;
-	}
-	unsigned long			timeStamp = [MV_DownloadManager defaultManager].timeStamp++;
-	NSString				*hashBase = [NSString stringWithFormat: @"%ld%@%@", timeStamp, [MV_DownloadManager defaultManager].privateAPIKey, [MV_DownloadManager defaultManager].publicAPIKey];
-	NSString				*hash = [self md5ForString: hashBase];
-	NSMutableDictionary		*fullQuery = self.parameters ? self.parameters.mutableCopy : [NSMutableDictionary dictionary];
-	NSURLComponents			*components = [NSURLComponents componentsWithURL: BASE_API_ENDPOINT resolvingAgainstBaseURL: NO];
+- (NSURL *) URL {
+	NSMutableDictionary		*params = self.parameters ? self.parameters.mutableCopy : [NSMutableDictionary dictionary];
+
+	params[@"limit"] = @(self.fetchAll ? 100 : MIN(100, self.fetchCount));
+	if (self.offset) params[@"offset"] = [NSString stringWithFormat: @"%ld", self.offset];
 	
-	fullQuery[@"ts"] = [NSString stringWithFormat: @"%ld", timeStamp];
-	fullQuery[@"hash"] = hash;
-	fullQuery[@"limit"] = @(self.fetchAll ? 100 : MIN(100, self.fetchCount));
-	fullQuery[@"apikey"] = [MV_DownloadManager defaultManager].publicAPIKey;
-	if (self.offset) fullQuery[@"offset"] = [NSString stringWithFormat: @"%ld", self.offset];
-	
-	NSMutableString			*queryString = [NSMutableString string];
-	for (NSString *key in fullQuery) {
-		[queryString appendFormat: @"%@=%@&", key, fullQuery[key]];
-	}
-	
-	components.query = queryString;
-	components.path = [[NSString stringWithFormat: @"/v%d/public/", [MV_DownloadManager defaultManager].apiVersion] stringByAppendingPathComponent: self.fragment];
-	
-	NSURL					*url = components.URL;
- 	return [NSURLRequest requestWithURL: url];
+	return [[MV_DownloadManager defaultManager] paramaterizeURL: [[MV_DownloadManager defaultManager] URLForFragment: self.fragment] withParameters: self.parameters];
 }
 
 - (BOOL) fetchAll { return self.fetchCount == MV_QUERY_FETCH_ALL; }
-
-- (NSString *) md5ForString: (NSString *) string {
-	const char			*ptr = [string UTF8String];
-	unsigned char		md5Buffer[CC_MD5_DIGEST_LENGTH];
-	
-	CC_MD5(ptr, strlen(ptr), md5Buffer);
-	
-	NSMutableString		*output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
-		[output appendFormat:@"%02x", md5Buffer[i]];
-	}
-	return output;
-}
 
 
 @end
