@@ -19,6 +19,9 @@
 		B596E9CD190BBDB5006619D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B5190BBDB5006619D6 /* UIKit.framework */; };
 		B596E9D5190BBDB5006619D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B596E9D3190BBDB5006619D6 /* InfoPlist.strings */; };
 		B596E9D7190BBDB5006619D6 /* MarveliOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9D6190BBDB5006619D6 /* MarveliOSTests.m */; };
+		B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */; };
+		B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E5190BDA5D006619D6 /* MV_Utilities.m */; };
+		B5A8C280190BF19A009EAA89 /* MV_Query.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C27F190BF19A009EAA89 /* MV_Query.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,13 @@
 		B596E9D2190BBDB5006619D6 /* MarveliOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MarveliOSTests-Info.plist"; sourceTree = "<group>"; };
 		B596E9D4190BBDB5006619D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B596E9D6190BBDB5006619D6 /* MarveliOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarveliOSTests.m; sourceTree = "<group>"; };
+		B596E9E0190BBE07006619D6 /* MV_DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_DownloadManager.h; path = MarveliOS/Core/MV_DownloadManager.h; sourceTree = "<group>"; };
+		B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_DownloadManager.m; path = MarveliOS/Core/MV_DownloadManager.m; sourceTree = "<group>"; };
+		B596E9E4190BBEED006619D6 /* MV_Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_Utilities.h; path = MarveliOS/Core/MV_Utilities.h; sourceTree = "<group>"; };
+		B596E9E5190BDA5D006619D6 /* MV_Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_Utilities.m; path = MarveliOS/Core/MV_Utilities.m; sourceTree = "<group>"; };
+		B5A8C27E190BF19A009EAA89 /* MV_Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_Query.h; path = MarveliOS/Core/MV_Query.h; sourceTree = "<group>"; };
+		B5A8C27F190BF19A009EAA89 /* MV_Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_Query.m; path = MarveliOS/Core/MV_Query.m; sourceTree = "<group>"; };
+		B5A8C281190BF1FB009EAA89 /* MV_MarveliOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_MarveliOS.h; path = MarveliOS/Core/MV_MarveliOS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 		B596E9A5190BBDB5006619D6 = {
 			isa = PBXGroup;
 			children = (
+				B596E9E3190BBE10006619D6 /* Core */,
 				B596E9B7190BBDB5006619D6 /* MarveliOS */,
 				B596E9D0190BBDB5006619D6 /* MarveliOSTests */,
 				B596E9B0190BBDB5006619D6 /* Frameworks */,
@@ -142,6 +153,20 @@
 				B596E9D3190BBDB5006619D6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B596E9E3190BBE10006619D6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B5A8C281190BF1FB009EAA89 /* MV_MarveliOS.h */,
+				B596E9E4190BBEED006619D6 /* MV_Utilities.h */,
+				B596E9E5190BDA5D006619D6 /* MV_Utilities.m */,
+				B596E9E0190BBE07006619D6 /* MV_DownloadManager.h */,
+				B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */,
+				B5A8C27E190BF19A009EAA89 /* MV_Query.h */,
+				B5A8C27F190BF19A009EAA89 /* MV_Query.m */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A8C280190BF19A009EAA89 /* MV_Query.m in Sources */,
+				B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */,
 				B596E9BE190BBDB5006619D6 /* main.m in Sources */,
 				B596E9C2190BBDB5006619D6 /* MV_AppDelegate.m in Sources */,
+				B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +468,7 @@
 				B596E9DC190BBDB5006619D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B596E9DD190BBDB5006619D6 /* Build configuration list for PBXNativeTarget "MarveliOSTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +477,7 @@
 				B596E9DF190BBDB5006619D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

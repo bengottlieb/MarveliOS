@@ -7,15 +7,33 @@
 //
 
 #import "MV_AppDelegate.h"
+#import "MV_Query.h"
+#import "MV_DownloadManager.h"
 
 @implementation MV_AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+#warning Be sure to set your Public and Private API keys. Go to https://developer.marvel.com/pleasesignin to get a key
+	[MV_DownloadManager defaultManager].publicAPIKey = @"PUBLIC_API_KEY";
+	[MV_DownloadManager defaultManager].privateAPIKey = @"PRIVATE_API_KEY";
+
+    
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	MV_Query			*query = [MV_Query queryWithFragment: @"series" andParameters: @{@"titleStartsWith": @"q"} ];
+	
+	query.progressBlock = ^(CGFloat progress) { NSLog(@"Progress: %.2f", progress * 100); };
+	[query fetch: MV_QUERY_FETCH_ALL withCompletion:^(NSError *error) {
+		if (error)
+			[UIAlertView showAlertWithTitle: @"Error While Downloading" message: error.localizedDescription];
+		else
+			NSLog(@"%@", [query.results valueForKey: @"title"]);
+	}];
+	
     return YES;
 }
 
