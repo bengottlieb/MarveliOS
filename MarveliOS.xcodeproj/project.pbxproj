@@ -22,6 +22,9 @@
 		B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */; };
 		B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E5190BDA5D006619D6 /* MV_Utilities.m */; };
 		B5A8C280190BF19A009EAA89 /* MV_Query.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C27F190BF19A009EAA89 /* MV_Query.m */; };
+		B5A8C284190C14EB009EAA89 /* MV_Query+FrequentQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C283190C14EB009EAA89 /* MV_Query+FrequentQueries.m */; };
+		B5A8C288190C16E9009EAA89 /* MV_BasicSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C286190C16E9009EAA89 /* MV_BasicSearchViewController.m */; };
+		B5A8C289190C16E9009EAA89 /* MV_BasicSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8C287190C16E9009EAA89 /* MV_BasicSearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		B5A8C27E190BF19A009EAA89 /* MV_Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_Query.h; path = MarveliOS/Core/MV_Query.h; sourceTree = "<group>"; };
 		B5A8C27F190BF19A009EAA89 /* MV_Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_Query.m; path = MarveliOS/Core/MV_Query.m; sourceTree = "<group>"; };
 		B5A8C281190BF1FB009EAA89 /* MV_MarveliOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_MarveliOS.h; path = MarveliOS/Core/MV_MarveliOS.h; sourceTree = "<group>"; };
+		B5A8C282190C14EB009EAA89 /* MV_Query+FrequentQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MV_Query+FrequentQueries.h"; path = "MarveliOS/Core/MV_Query+FrequentQueries.h"; sourceTree = "<group>"; };
+		B5A8C283190C14EB009EAA89 /* MV_Query+FrequentQueries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MV_Query+FrequentQueries.m"; path = "MarveliOS/Core/MV_Query+FrequentQueries.m"; sourceTree = "<group>"; };
+		B5A8C285190C16E9009EAA89 /* MV_BasicSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_BasicSearchViewController.h; path = Demo/Controllers/MV_BasicSearchViewController.h; sourceTree = "<group>"; };
+		B5A8C286190C16E9009EAA89 /* MV_BasicSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_BasicSearchViewController.m; path = Demo/Controllers/MV_BasicSearchViewController.m; sourceTree = "<group>"; };
+		B5A8C287190C16E9009EAA89 /* MV_BasicSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MV_BasicSearchViewController.xib; path = Demo/Controllers/MV_BasicSearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,7 @@
 		B596E9B7190BBDB5006619D6 /* MarveliOS */ = {
 			isa = PBXGroup;
 			children = (
+				B5A8C28A190C16F8009EAA89 /* Search Controller */,
 				B596E9C0190BBDB5006619D6 /* MV_AppDelegate.h */,
 				B596E9C1190BBDB5006619D6 /* MV_AppDelegate.m */,
 				B596E9C3190BBDB5006619D6 /* Images.xcassets */,
@@ -165,8 +174,20 @@
 				B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */,
 				B5A8C27E190BF19A009EAA89 /* MV_Query.h */,
 				B5A8C27F190BF19A009EAA89 /* MV_Query.m */,
+				B5A8C282190C14EB009EAA89 /* MV_Query+FrequentQueries.h */,
+				B5A8C283190C14EB009EAA89 /* MV_Query+FrequentQueries.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		B5A8C28A190C16F8009EAA89 /* Search Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5A8C285190C16E9009EAA89 /* MV_BasicSearchViewController.h */,
+				B5A8C286190C16E9009EAA89 /* MV_BasicSearchViewController.m */,
+				B5A8C287190C16E9009EAA89 /* MV_BasicSearchViewController.xib */,
+			);
+			name = "Search Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +268,7 @@
 			files = (
 				B596E9BC190BBDB5006619D6 /* InfoPlist.strings in Resources */,
 				B596E9C4190BBDB5006619D6 /* Images.xcassets in Resources */,
+				B5A8C289190C16E9009EAA89 /* MV_BasicSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,11 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A8C284190C14EB009EAA89 /* MV_Query+FrequentQueries.m in Sources */,
 				B5A8C280190BF19A009EAA89 /* MV_Query.m in Sources */,
 				B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */,
 				B596E9BE190BBDB5006619D6 /* main.m in Sources */,
 				B596E9C2190BBDB5006619D6 /* MV_AppDelegate.m in Sources */,
 				B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */,
+				B5A8C288190C16E9009EAA89 /* MV_BasicSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

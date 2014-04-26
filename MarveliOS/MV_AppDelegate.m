@@ -9,6 +9,7 @@
 #import "MV_AppDelegate.h"
 #import "MV_Query.h"
 #import "MV_DownloadManager.h"
+#import "MV_BasicSearchViewController.h"
 
 @implementation MV_AppDelegate
 
@@ -20,20 +21,10 @@
 
     
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [MV_BasicSearchViewController new]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-	
-	MV_Query			*query = [MV_Query queryWithFragment: @"series" andParameters: @{@"titleStartsWith": @"q"} ];
-	
-	query.progressBlock = ^(CGFloat progress) { NSLog(@"Progress: %.2f", progress * 100); };
-	[query fetch: MV_QUERY_FETCH_ALL withCompletion:^(NSError *error) {
-		if (error)
-			[UIAlertView showAlertWithTitle: @"Error While Downloading" message: error.localizedDescription];
-		else
-			NSLog(@"%@", [query.results valueForKey: @"title"]);
-	}];
-	
     return YES;
 }
 
