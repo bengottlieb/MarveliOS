@@ -20,13 +20,8 @@
 @implementation MVM_Object
 
 + (instancetype) findObjectMatching: (NSDictionary *) serverObject inContext: (NSManagedObjectContext *) moc {
-	NSNumber				*apiId = serverObject[@"id"];
-	
-	if (apiId == nil) {
-		NSString			*idViaURI = [serverObject[@"resourceURI"] lastPathComponent];
-		
-		if (idViaURI) apiId = @([idViaURI integerValue]);
-	}
+	NSNumber				*apiId = serverObject.mv_apiId;
+
 	if (apiId == nil) return nil;
 	return [moc mv_anyObjectOfType: [self entityName] matchingPredicate: [NSPredicate predicateWithFormat: @"apiId == %@", apiId]];
 }
@@ -46,6 +41,9 @@
 	NSDictionary				*props = self.entity.propertiesByName;
 	
 	self[@"partialImport"] = @(serverObject[@"id"] == nil);
+	
+	self[@"apiId"] = serverObject.mv_apiId;
+	
 	for (NSString *key in serverObject) {
 		NSString					*field = [self convertServerFieldToObjectField: key];
 		NSAttributeDescription		*desc = props[field];
@@ -183,4 +181,20 @@
 
 - (id) objectForKeyedSubscript: (id) key { return [self valueForKey: key]; }
 - (void) setObject: (id) obj forKeyedSubscript: (id) key { [self setValue: obj forKey: key]; }
+@end
+
+
+@implementation NSDictionary (MVM_)
+
+- (NSNumber *) mv_apiId {
+	NSNumber				*apiId = self[@"id"];
+	
+	if (apiId == nil) {
+		NSString			*idViaURI = [self[@"resourceURI"] lastPathComponent];
+		
+		if (idViaURI) apiId = @([idViaURI integerValue]);
+	}
+	return apiId;
+}
+
 @end

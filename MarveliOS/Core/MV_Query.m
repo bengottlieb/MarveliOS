@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *collectedResults;
 @property (nonatomic, strong) NSArray *results;
 @property (nonatomic, strong) NSString *attributionText, *attributionHTML, *copyright, *etag;
-@property (nonatomic, readwrite) NSUInteger count, total, fetchCount;
+@property (nonatomic, readwrite) NSUInteger count, total;
 @property (nonatomic, copy) mv_queryCompletedBlock completion;
 @end
 
@@ -28,12 +28,17 @@
 	query.fragment = fragment;
 	query.parameters = params;
 	query.cacheResults = YES;
+	query.numberToFetch = 20;
+	
+	#if DEBUG
+		query.progressBlock = ^(CGFloat progress) { NSLog(@"%.1f%%", progress * 100.0); };
+	#endif
+	
 	return query;
 }
 
-- (MV_Query *) fetch: (NSUInteger) count withCompletion: (mv_queryCompletedBlock) completion {
+- (MV_Query *) fetchWithCompletion: (mv_queryCompletedBlock) completion {
 	self.collectedResults = [NSMutableArray array];
-	self.fetchCount = count;
 	self.completion = completion;
 	
 	[self continueFetch];
@@ -48,24 +53,24 @@
 			self.copyright = results[@"copyright"];
 			self.total = [results[@"data"][@"total"] integerValue];
 			self.etag = results[@"etag"];
-			if (!self.fetchAll && self.total < self.fetchCount) self.fetchCount = self.total;
+			if (!self.fetchAll && self.total < self.numberToFetch) self.numberToFetch = self.total;
 			
-			[self.collectedResults addObjectsFromArray: results[@"data"][@"results"]];
+			NSArray				*chunkResults = results[@"data"][@"results"];
+			
+			[self.collectedResults addObjectsFromArray: chunkResults];
 			self.count = self.results.count;
 			
-			if (self.count < self.fetchCount && self.count < self.total) {
+			if (self.cacheResults && self.objectServerType != MV_Object_type_none)
+				[[MV_Store store] importServerObjects: chunkResults ofType: self.objectServerType withCompletion: nil];
+			
+			if (self.count < self.numberToFetch && self.count < self.total) {
 				self.offset = self.count;
 				
 				
-				if (self.progressBlock) self.progressBlock( ((float) self.count) / ((float) (self.fetchAll ? self.total : self.fetchCount)) );
+				if (self.progressBlock) self.progressBlock( ((float) self.count) / ((float) (self.fetchAll ? self.total : self.numberToFetch)) );
 				[self continueFetch];
 			} else {
-				if (self.cacheResults && self.objectServerType != MV_Object_type_none)
-					[[MV_Store store] importServerObjects: self.results ofType: self.objectServerType withCompletion: ^(NSArray *importedObjectIDs) {
-						self.completion(error);
-					}];
-				else
-					self.completion(error);
+				self.completion(error);
 			}
 		} else
 			self.completion(error);
@@ -77,13 +82,13 @@
 - (NSURL *) URL {
 	NSMutableDictionary		*params = self.parameters ? self.parameters.mutableCopy : [NSMutableDictionary dictionary];
 
-	params[@"limit"] = @(self.fetchAll ? 100 : MIN(100, self.fetchCount));
+	params[@"limit"] = @(self.fetchAll ? 100 : MIN(100, self.numberToFetch));
 	if (self.offset) params[@"offset"] = [NSString stringWithFormat: @"%ld", self.offset];
 	
-	return [[MV_DownloadManager defaultManager] paramaterizeURL: [[MV_DownloadManager defaultManager] URLForFragment: self.fragment] withParameters: self.parameters];
+	return [[MV_DownloadManager defaultManager] paramaterizeURL: [[MV_DownloadManager defaultManager] URLForFragment: self.fragment] withParameters: params];
 }
 
-- (BOOL) fetchAll { return self.fetchCount == MV_QUERY_FETCH_ALL; }
+- (BOOL) fetchAll { return self.numberToFetch == MV_QUERY_FETCH_ALL; }
 
 
 @end

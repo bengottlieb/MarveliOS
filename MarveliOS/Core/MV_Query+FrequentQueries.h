@@ -10,6 +10,7 @@
 
 @interface MV_Query (FrequentQueries)
 
-+ (MV_Query *) queryForResultType: (MV_Object_type) type withSearchText: (NSString *) text;
++ (MV_Query *) queryForObjectsOfType: (MV_Object_type) type withSearchText: (NSString *) text;
++ (MV_Query *) queryForAllObjectsOfType: (MV_Object_type) type;
 
 @end

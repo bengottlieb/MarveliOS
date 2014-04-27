@@ -16,7 +16,7 @@
 + (instancetype) queryWithFragment: (NSString *) fragment andParameters: (NSDictionary *) params;
 
 @property (nonatomic, copy) mv_progressBlock progressBlock;
-@property (nonatomic) long offset;
+@property (nonatomic) long offset, numberToFetch;
 
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSString *attributionText, *attributionHTML, *copyright;
@@ -25,6 +25,6 @@
 @property (nonatomic) MV_Object_type objectServerType;
 
 
-- (MV_Query *) fetch: (NSUInteger) count withCompletion: (mv_queryCompletedBlock) completion;
+- (MV_Query *) fetchWithCompletion: (mv_queryCompletedBlock) completion;
 
 @end

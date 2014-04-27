@@ -10,3 +10,9 @@
 + (NSString *) entityName;
 
 @end
+
+
+
+@interface NSDictionary (MVM_)
+@property (nonatomic, readonly) NSNumber *mv_apiId;
+@end
