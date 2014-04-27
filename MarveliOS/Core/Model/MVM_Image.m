@@ -10,6 +10,4 @@
 
 @implementation MVM_Image
 
-// Custom logic goes here.
-
 @end

@@ -85,6 +85,9 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 		completion(nil, [NSError errorWithDomain: MV_ErrorDomain code: MV_Error_missingAPIKeys userInfo: nil]);
 		return;
 	}
+	
+	self.activityIndicatorCount++;
+	
 	NSURLSessionDataTask	*task = [self.session dataTaskWithRequest: request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSUInteger			statusCode = [(NSHTTPURLResponse *) response statusCode];
 		
@@ -99,6 +102,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 			completion(nil, error);
 		} else
 			completion(data, error);
+		self.activityIndicatorCount--;
 	}];
 	[task resume];
 }
@@ -152,5 +156,17 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	return output;
 }
 
+- (void) setActivityIndicatorCount: (unsigned long) activityIndicatorCount {
+	if (activityIndicatorCount == _activityIndicatorCount) return;
+	
+	BOOL				shouldShow = (_activityIndicatorCount == 0);
+	BOOL				shouldHide = (activityIndicatorCount == 0);
+	
+	if (shouldShow || shouldHide) dispatch_async(dispatch_get_main_queue(), ^{
+		if (shouldShow) [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		if (shouldHide) [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	});
+	_activityIndicatorCount = activityIndicatorCount;
+}
 
 @end

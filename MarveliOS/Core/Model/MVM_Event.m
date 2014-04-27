@@ -10,6 +10,6 @@
 
 @implementation MVM_Event
 
-// Custom logic goes here.
+- (MV_Object_type) objectType { return MV_Object_type_event; }
 
 @end

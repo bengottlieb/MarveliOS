@@ -29,6 +29,7 @@
 	query.parameters = params;
 	query.cacheResults = YES;
 	query.numberToFetch = 20;
+	query.relatedObjectDepth = 1;
 	
 	#if DEBUG
 		query.progressBlock = ^(CGFloat progress) { NSLog(@"%.1f%%", progress * 100.0); };
@@ -61,7 +62,7 @@
 			self.count = self.results.count;
 			
 			if (self.cacheResults && self.objectServerType != MV_Object_type_none)
-				[[MV_Store store] importServerObjects: chunkResults ofType: self.objectServerType withCompletion: nil];
+				[[MV_Store store] importServerObjects: chunkResults ofType: self.objectServerType toDepth: self.relatedObjectDepth withCompletion: nil];
 			
 			if (self.count < self.numberToFetch && self.count < self.total) {
 				self.offset = self.count;

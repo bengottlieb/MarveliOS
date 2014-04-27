@@ -17,6 +17,8 @@
 
 @property (nonatomic, copy) mv_progressBlock progressBlock;
 @property (nonatomic) long numberToFetch;
+@property (nonatomic) NSUInteger relatedObjectDepth;			//how deeply should we follow links to download related objects. Defaults to 1, just download the objects, no related downloads
+																//NOTE: You can VERY quickly bust your API limit using values greater than 1 here.
 
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSString *attributionText, *attributionHTML, *copyright;

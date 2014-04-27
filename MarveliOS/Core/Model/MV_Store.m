@@ -50,14 +50,14 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_Store, store);
 	return _moc;
 }
 
-- (void) importServerObjects: (NSArray *) serverObjects ofType: (MV_Object_type) type withCompletion: (mv_importCompletionBlock) completion {
+- (void) importServerObjects: (NSArray *) serverObjects ofType: (MV_Object_type) type toDepth: (NSUInteger) depth withCompletion: (mv_importCompletionBlock) completion {
 	Class				objectClass = [MV_Store classForObjectType: type];
 	
 	[self performBlockInMOCContext: ^(NSManagedObjectContext *moc) {
 		NSMutableArray			*objectIDs = [NSMutableArray new];
 		
 		for (NSDictionary *serverObject in serverObjects) {
-			MVM_Object			*object = [objectClass importServerObject: serverObject intoContext: moc];
+			MVM_Object			*object = [objectClass importServerObject: serverObject toDepth: depth intoContext: moc];
 
 			if (object) [objectIDs addObject: object.objectID];
 		}
