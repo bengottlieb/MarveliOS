@@ -26,6 +26,8 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_Store, store);
 - (id) init {
 	if (self = [super init]) {
 		self.contextURL = [[NSURL fileURLWithPath: NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject] URLByAppendingPathComponent: @"MarveliOS.db"];
+		
+		[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(contextDidSaveChanges:) name: NSManagedObjectContextDidSaveNotification object: nil];
 	}
 	return self;
 }
@@ -69,6 +71,26 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_Store, store);
 	}];
 }
 
+- (NSManagedObjectContext *) mainThreadContext {
+	if (_mainThreadContext == nil) {
+		_mainThreadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
+		_mainThreadContext.persistentStoreCoordinator = self.moc.persistentStoreCoordinator;
+	}
+	return _mainThreadContext;
+}
+
+
+//================================================================================================================
+#pragma mark Notifications
+- (void) contextDidSaveChanges: (NSNotification *) note {
+	if (note.object == self.moc && _mainThreadContext) {
+		dispatch_async(dispatch_get_main_queue(), ^{ [self.mainThreadContext mergeChangesFromContextDidSaveNotification: note]; });
+	} else if (note.object == _mainThreadContext) {
+		[self performBlockInMOCContext:^(NSManagedObjectContext *moc) {
+			[moc mergeChangesFromContextDidSaveNotification: note];
+		}];
+	}
+}
 
 
 //================================================================================================================
