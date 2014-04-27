@@ -42,8 +42,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_Store, store);
 			return nil;
 		}
 		
-		NSManagedObjectModel				*model = [NSManagedObjectModel mergedModelFromBundles: nil];
+		NSURL								*modelURL = [[NSBundle mainBundle] URLForResource: @"MarveliOS" withExtension: @"momd"];
+		NSManagedObjectModel				*model = [[NSManagedObjectModel alloc] initWithContentsOfURL: modelURL];
 		NSPersistentStoreCoordinator		*coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: model];
+
 		[coordinator addPersistentStoreWithType: NSSQLiteStoreType configuration: nil URL: self.contextURL options: options error: &error];
 				
 		_moc = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
