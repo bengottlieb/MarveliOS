@@ -9,6 +9,8 @@ const struct MVM_StoryAttributes MVM_StoryAttributes = {
 	.modified = @"modified",
 	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
+	.title = @"title",
+	.totleInitial = @"totleInitial",
 	.type = @"type",
 };
 
@@ -135,6 +137,20 @@ const struct MVM_StoryFetchedProperties MVM_StoryFetchedProperties = {
 
 
 @dynamic resourceURI;
+
+
+
+
+
+
+@dynamic title;
+
+
+
+
+
+
+@dynamic totleInitial;
 
 
 

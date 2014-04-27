@@ -8,6 +8,7 @@ const struct MVM_CharacterAttributes MVM_CharacterAttributes = {
 	.apiId = @"apiId",
 	.modified = @"modified",
 	.name = @"name",
+	.nameInitial = @"nameInitial",
 	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 };
@@ -108,6 +109,13 @@ const struct MVM_CharacterFetchedProperties MVM_CharacterFetchedProperties = {
 
 
 @dynamic name;
+
+
+
+
+
+
+@dynamic nameInitial;
 
 
 

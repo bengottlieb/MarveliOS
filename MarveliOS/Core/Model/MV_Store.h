@@ -17,6 +17,8 @@ SINGLETON_INTERFACE_FOR_CLASS_AND_METHOD(MV_Store, store);
 
 @property (nonatomic, strong) NSManagedObjectContext *mainThreadContext;
 
++ (Class) classForObjectType: (MV_Object_type) type;
+
 - (void) performBlockInMOCContext: (mv_contextBlock) block;
 - (void) importServerObjects: (NSArray *) serverObjects ofType: (MV_Object_type) type toDepth: (NSUInteger) depth withCompletion: (mv_importCompletionBlock) completion;
 

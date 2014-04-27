@@ -10,6 +10,8 @@ extern const struct MVM_StoryAttributes {
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
+	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *totleInitial;
 	__unsafe_unretained NSString *type;
 } MVM_StoryAttributes;
 
@@ -33,6 +35,8 @@ extern const struct MVM_StoryFetchedProperties {
 @class MVM_Series;
 @class MVM_Image;
 @class MVM_URL;
+
+
 
 
 
@@ -107,6 +111,26 @@ extern const struct MVM_StoryFetchedProperties {
 
 
 //- (BOOL)validateResourceURI:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* title;
+
+
+
+//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* totleInitial;
+
+
+
+//- (BOOL)validateTotleInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -243,6 +267,18 @@ extern const struct MVM_StoryFetchedProperties {
 
 - (NSString*)primitiveResourceURI;
 - (void)setPrimitiveResourceURI:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveTitle;
+- (void)setPrimitiveTitle:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveTotleInitial;
+- (void)setPrimitiveTotleInitial:(NSString*)value;
 
 
 

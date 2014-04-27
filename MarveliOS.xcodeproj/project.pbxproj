@@ -32,6 +32,7 @@
 		B548C266190C805800E2427A /* MV_Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C265190C805800E2427A /* MV_Store.m */; };
 		B548C268190C834300E2427A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B548C267190C834300E2427A /* CoreData.framework */; };
 		B548C26B190C8BA600E2427A /* NSManagedObjectContext+MV_.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */; };
+		B548C278190D4A0600E2427A /* MV_ObjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */; };
 		B596E9B2190BBDB5006619D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B1190BBDB5006619D6 /* Foundation.framework */; };
 		B596E9B4190BBDB5006619D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */; };
 		B596E9B6190BBDB5006619D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B5190BBDB5006619D6 /* UIKit.framework */; };
@@ -109,6 +110,8 @@
 		B548C267190C834300E2427A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+MV_.h"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.h"; sourceTree = "<group>"; };
 		B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+MV_.m"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.m"; sourceTree = "<group>"; };
+		B548C276190D4A0600E2427A /* MV_ObjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MV_ObjectsTableViewController.h; sourceTree = "<group>"; };
+		B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MV_ObjectsTableViewController.m; sourceTree = "<group>"; };
 		B596E9AE190BBDB5006619D6 /* MarveliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarveliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B596E9B1190BBDB5006619D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,9 +225,28 @@
 			path = machine;
 			sourceTree = "<group>";
 		};
+		B548C274190D4A0600E2427A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B548C275190D4A0600E2427A /* Objects Table */,
+			);
+			name = UI;
+			path = MarveliOS/UI;
+			sourceTree = "<group>";
+		};
+		B548C275190D4A0600E2427A /* Objects Table */ = {
+			isa = PBXGroup;
+			children = (
+				B548C276190D4A0600E2427A /* MV_ObjectsTableViewController.h */,
+				B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */,
+			);
+			path = "Objects Table";
+			sourceTree = "<group>";
+		};
 		B596E9A5190BBDB5006619D6 = {
 			isa = PBXGroup;
 			children = (
+				B548C274190D4A0600E2427A /* UI */,
 				B596E9E3190BBE10006619D6 /* Core */,
 				B596E9B7190BBDB5006619D6 /* MarveliOS */,
 				B596E9D0190BBDB5006619D6 /* MarveliOSTests */,
@@ -425,6 +447,7 @@
 				B548C256190C7FD700E2427A /* _MVM_Story.m in Sources */,
 				B596E9C2190BBDB5006619D6 /* MV_AppDelegate.m in Sources */,
 				B548C253190C7FD700E2427A /* _MVM_Event.m in Sources */,
+				B548C278190D4A0600E2427A /* MV_ObjectsTableViewController.m in Sources */,
 				B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */,
 				B548C24E190C7FD700E2427A /* _MVM_Character.m in Sources */,
 				B548C25E190C7FD700E2427A /* MVM_Event.m in Sources */,

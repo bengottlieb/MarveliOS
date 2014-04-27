@@ -10,6 +10,7 @@ extern const struct MVM_CreatorAttributes {
 	__unsafe_unretained NSString *firstName;
 	__unsafe_unretained NSString *fullName;
 	__unsafe_unretained NSString *lastName;
+	__unsafe_unretained NSString *lastNameInitial;
 	__unsafe_unretained NSString *middleName;
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *partialImport;
@@ -32,6 +33,7 @@ extern const struct MVM_CreatorFetchedProperties {
 @class MVM_Series;
 @class MVM_Story;
 @class MVM_URL;
+
 
 
 
@@ -105,6 +107,16 @@ extern const struct MVM_CreatorFetchedProperties {
 
 
 //- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* lastNameInitial;
+
+
+
+//- (BOOL)validateLastNameInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -253,6 +265,12 @@ extern const struct MVM_CreatorFetchedProperties {
 
 - (NSString*)primitiveLastName;
 - (void)setPrimitiveLastName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveLastNameInitial;
+- (void)setPrimitiveLastNameInitial:(NSString*)value;
 
 
 

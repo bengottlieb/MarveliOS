@@ -12,6 +12,8 @@ const struct MVM_SeriesAttributes MVM_SeriesAttributes = {
 	.rating = @"rating",
 	.resourceURI = @"resourceURI",
 	.startYear = @"startYear",
+	.title = @"title",
+	.totleInitial = @"totleInitial",
 };
 
 const struct MVM_SeriesRelationships MVM_SeriesRelationships = {
@@ -209,6 +211,20 @@ const struct MVM_SeriesFetchedProperties MVM_SeriesFetchedProperties = {
 - (void)setPrimitiveStartYearValue:(int32_t)value_ {
 	[self setPrimitiveStartYear:[NSNumber numberWithInt:value_]];
 }
+
+
+
+
+
+@dynamic title;
+
+
+
+
+
+
+@dynamic totleInitial;
+
 
 
 

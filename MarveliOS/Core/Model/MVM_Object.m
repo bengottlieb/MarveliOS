@@ -106,7 +106,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 
 //================================================================================================================
 #pragma mark Importers
-- (void) importThumbnail: (NSDictionary *) info {
+- (void) importThumbnail: (NSDictionary *) info toDepth: (NSNumber *) depth {
 	MVM_Image			*thumbnail = self[@"thumbnail"];
 	
 	if ([thumbnail.path isEqual: info[@"path"]]) return;		//already in there
@@ -119,7 +119,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 	self[@"thumbnail"] = thumbnail;
 }
 
-- (void) importImages: (NSDictionary *) imagesInfo {
+- (void) importImages: (NSDictionary *) imagesInfo toDepth: (NSNumber *) depth {
 	NSMutableSet				*existingImages = [self mutableSetValueForKey: @"images"];
 	NSSet						*existingPaths = [existingImages valueForKey: @"path"];
 	NSMutableArray				*incomingPaths = [[imagesInfo valueForKey: @"path"] mutableCopy];
@@ -212,6 +212,10 @@ static NSMutableSet			*s_pendingUpdates = nil;
 
 //================================================================================================================
 #pragma mark Utility
+
++ (NSString *) defaultSortKey { return @"name"; }
++ (NSString *) userVisibleName { return @""; }
++ (NSString *) userVisiblePluralName  { return @""; }
 
 - (NSString *) convertServerFieldToObjectField: (NSString *) field {
 	if ([field isEqual: @"id"]) return @"apiId";

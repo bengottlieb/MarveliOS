@@ -9,6 +9,7 @@ const struct MVM_CreatorAttributes MVM_CreatorAttributes = {
 	.firstName = @"firstName",
 	.fullName = @"fullName",
 	.lastName = @"lastName",
+	.lastNameInitial = @"lastNameInitial",
 	.middleName = @"middleName",
 	.modified = @"modified",
 	.partialImport = @"partialImport",
@@ -117,6 +118,13 @@ const struct MVM_CreatorFetchedProperties MVM_CreatorFetchedProperties = {
 
 
 @dynamic lastName;
+
+
+
+
+
+
+@dynamic lastNameInitial;
 
 
 

@@ -9,6 +9,7 @@ extern const struct MVM_CharacterAttributes {
 	__unsafe_unretained NSString *apiId;
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *nameInitial;
 	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 } MVM_CharacterAttributes;
@@ -31,6 +32,7 @@ extern const struct MVM_CharacterFetchedProperties {
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -91,6 +93,16 @@ extern const struct MVM_CharacterFetchedProperties {
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* nameInitial;
+
+
+
+//- (BOOL)validateNameInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -215,6 +227,12 @@ extern const struct MVM_CharacterFetchedProperties {
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveNameInitial;
+- (void)setPrimitiveNameInitial:(NSString*)value;
 
 
 

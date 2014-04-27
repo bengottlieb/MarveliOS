@@ -19,6 +19,7 @@ extern const struct MVM_ComicAttributes {
 	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *titleInitial;
 	__unsafe_unretained NSString *upc;
 	__unsafe_unretained NSString *variantDescription;
 } MVM_ComicAttributes;
@@ -51,6 +52,7 @@ extern const struct MVM_ComicFetchedProperties {
 @class MVM_Image;
 @class MVM_URL;
 @class MVM_Comic;
+
 
 
 
@@ -237,6 +239,16 @@ extern const struct MVM_ComicFetchedProperties {
 
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* titleInitial;
+
+
+
+//- (BOOL)validateTitleInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -479,6 +491,12 @@ extern const struct MVM_ComicFetchedProperties {
 
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveTitleInitial;
+- (void)setPrimitiveTitleInitial:(NSString*)value;
 
 
 

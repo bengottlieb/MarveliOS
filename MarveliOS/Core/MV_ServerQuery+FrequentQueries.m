@@ -36,7 +36,7 @@
 + (MV_ServerQuery *) queryForAllObjectsOfType: (MV_Object_type) type {
 	MV_ServerQuery		*query = [self queryForObjectsOfType: type withSearchText: nil];
 	
-	query.numberToFetch = MV_QUERY_FETCH_ALL;
+	query.numberToFetch = 100;//MV_QUERY_FETCH_ALL;
 	return query;
 }
 @end

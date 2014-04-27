@@ -11,5 +11,7 @@
 @implementation MVM_Character
 
 - (MV_Object_type) objectType { return MV_Object_type_character; }
-
+- (NSString *) nameInitial { return [self.name substringToIndex: 1]; }
++ (NSString *) userVisibleName { return @"character"; }
++ (NSString *) userVisiblePluralName  { return @"characters"; }
 @end

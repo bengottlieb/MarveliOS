@@ -18,6 +18,7 @@ const struct MVM_ComicAttributes MVM_ComicAttributes = {
 	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 	.title = @"title",
+	.titleInitial = @"titleInitial",
 	.upc = @"upc",
 	.variantDescription = @"variantDescription",
 };
@@ -284,6 +285,13 @@ const struct MVM_ComicFetchedProperties MVM_ComicFetchedProperties = {
 
 
 @dynamic title;
+
+
+
+
+
+
+@dynamic titleInitial;
 
 
 

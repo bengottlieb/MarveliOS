@@ -13,6 +13,7 @@ extern const struct MVM_EventAttributes {
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *start;
 	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *totleInitial;
 } MVM_EventAttributes;
 
 extern const struct MVM_EventRelationships {
@@ -35,6 +36,7 @@ extern const struct MVM_EventFetchedProperties {
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -141,6 +143,16 @@ extern const struct MVM_EventFetchedProperties {
 
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* totleInitial;
+
+
+
+//- (BOOL)validateTotleInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -285,6 +297,12 @@ extern const struct MVM_EventFetchedProperties {
 
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveTotleInitial;
+- (void)setPrimitiveTotleInitial:(NSString*)value;
 
 
 
