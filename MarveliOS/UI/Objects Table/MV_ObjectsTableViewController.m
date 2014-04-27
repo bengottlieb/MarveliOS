@@ -92,6 +92,18 @@
 	return [[MV_Store store].mainThreadContext mv_fetchRequestWithEntityName: [self.objectTypeClass entityName] predicate: predicate sortBy: sort fetchLimit: 0];
 }
 
+- (UIView *) disclaimerLabelForView: (UIView *) parent {
+	CGFloat				height = 11;
+	UILabel				*label = [[UILabel alloc] initWithFrame: CGRectMake(0, parent.bounds.size.height - height, parent.bounds.size.width, height)];
+	
+	label.backgroundColor = [UIColor colorWithWhite: 0.9 alpha: 0.5];
+	label.font = [UIFont systemFontOfSize: 9];
+	label.textAlignment = NSTextAlignmentCenter;
+	label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+	
+	label.text = @"Data provided by Marvel. © 2014 Marvel";
+	return label;
+}
 
 //================================================================================================================
 #pragma mark FetchedResultsController delegate
@@ -178,6 +190,7 @@
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
 	controller.view = imageView;
 	controller.title = object.mainTableText;
+	[imageView addSubview: [self disclaimerLabelForView: imageView]];
 	
 	[self.navigationController pushViewController: controller animated: YES];
 	[object fetchFullScreenImageWithCompletion:^(UIImage *image, NSError *error) {
@@ -187,5 +200,11 @@
 	}];
 
 }
+
+- (UIView *) tableView: (UITableView *) tableView viewForFooterInSection: (NSInteger) section {
+	return [self disclaimerLabelForView: tableView];
+}
+
+- (CGFloat) tableView:(UITableView *) tableView heightForFooterInSection:(NSInteger)section { return  11; }
 
 @end
