@@ -8,6 +8,7 @@ const struct MVM_EventAttributes MVM_EventAttributes = {
 	.apiId = @"apiId",
 	.end = @"end",
 	.modified = @"modified",
+	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 	.start = @"start",
 	.title = @"title",
@@ -54,6 +55,11 @@ const struct MVM_EventFetchedProperties MVM_EventFetchedProperties = {
 	
 	if ([key isEqualToString:@"apiIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"apiId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -106,6 +112,32 @@ const struct MVM_EventFetchedProperties MVM_EventFetchedProperties = {
 
 @dynamic modified;
 
+
+
+
+
+
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
+}
 
 
 

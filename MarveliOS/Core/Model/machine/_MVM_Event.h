@@ -9,6 +9,7 @@ extern const struct MVM_EventAttributes {
 	__unsafe_unretained NSString *apiId;
 	__unsafe_unretained NSString *end;
 	__unsafe_unretained NSString *modified;
+	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *start;
 	__unsafe_unretained NSString *title;
@@ -34,6 +35,7 @@ extern const struct MVM_EventFetchedProperties {
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -95,6 +97,20 @@ extern const struct MVM_EventFetchedProperties {
 
 
 //- (BOOL)validateModified:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* partialImport;
+
+
+
+@property BOOL partialImportValue;
+- (BOOL)partialImportValue;
+- (void)setPartialImportValue:(BOOL)value_;
+
+//- (BOOL)validatePartialImport:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -242,6 +258,15 @@ extern const struct MVM_EventFetchedProperties {
 
 - (NSDate*)primitiveModified;
 - (void)setPrimitiveModified:(NSDate*)value;
+
+
+
+
+- (NSNumber*)primitivePartialImport;
+- (void)setPrimitivePartialImport:(NSNumber*)value;
+
+- (BOOL)primitivePartialImportValue;
+- (void)setPrimitivePartialImportValue:(BOOL)value_;
 
 
 

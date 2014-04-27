@@ -12,11 +12,11 @@ extern const struct MVM_CreatorAttributes {
 	__unsafe_unretained NSString *lastName;
 	__unsafe_unretained NSString *middleName;
 	__unsafe_unretained NSString *modified;
+	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 } MVM_CreatorAttributes;
 
 extern const struct MVM_CreatorRelationships {
-	__unsafe_unretained NSString *characters;
 	__unsafe_unretained NSString *comics;
 	__unsafe_unretained NSString *events;
 	__unsafe_unretained NSString *series;
@@ -27,12 +27,12 @@ extern const struct MVM_CreatorRelationships {
 extern const struct MVM_CreatorFetchedProperties {
 } MVM_CreatorFetchedProperties;
 
-@class MVM_Character;
 @class MVM_Comic;
 @class MVM_Event;
 @class MVM_Series;
 @class MVM_Story;
 @class MVM_URL;
+
 
 
 
@@ -130,19 +130,26 @@ extern const struct MVM_CreatorFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* partialImport;
+
+
+
+@property BOOL partialImportValue;
+- (BOOL)partialImportValue;
+- (void)setPartialImportValue:(BOOL)value_;
+
+//- (BOOL)validatePartialImport:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* resourceURI;
 
 
 
 //- (BOOL)validateResourceURI:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@property (nonatomic, strong) NSSet *characters;
-
-- (NSMutableSet*)charactersSet;
 
 
 
@@ -186,11 +193,6 @@ extern const struct MVM_CreatorFetchedProperties {
 @end
 
 @interface _MVM_Creator (CoreDataGeneratedAccessors)
-
-- (void)addCharacters:(NSSet*)value_;
-- (void)removeCharacters:(NSSet*)value_;
-- (void)addCharactersObject:(MVM_Character*)value_;
-- (void)removeCharactersObject:(MVM_Character*)value_;
 
 - (void)addComics:(NSSet*)value_;
 - (void)removeComics:(NSSet*)value_;
@@ -267,15 +269,19 @@ extern const struct MVM_CreatorFetchedProperties {
 
 
 
+- (NSNumber*)primitivePartialImport;
+- (void)setPrimitivePartialImport:(NSNumber*)value;
+
+- (BOOL)primitivePartialImportValue;
+- (void)setPrimitivePartialImportValue:(BOOL)value_;
+
+
+
+
 - (NSString*)primitiveResourceURI;
 - (void)setPrimitiveResourceURI:(NSString*)value;
 
 
-
-
-
-- (NSMutableSet*)primitiveCharacters;
-- (void)setPrimitiveCharacters:(NSMutableSet*)value;
 
 
 

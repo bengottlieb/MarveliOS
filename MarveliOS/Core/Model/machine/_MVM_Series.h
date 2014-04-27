@@ -9,6 +9,7 @@ extern const struct MVM_SeriesAttributes {
 	__unsafe_unretained NSString *apiId;
 	__unsafe_unretained NSString *endYear;
 	__unsafe_unretained NSString *modified;
+	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *startYear;
@@ -38,6 +39,7 @@ extern const struct MVM_SeriesFetchedProperties {
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -103,6 +105,20 @@ extern const struct MVM_SeriesFetchedProperties {
 
 
 //- (BOOL)validateModified:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* partialImport;
+
+
+
+@property BOOL partialImportValue;
+- (BOOL)partialImportValue;
+- (void)setPartialImportValue:(BOOL)value_;
+
+//- (BOOL)validatePartialImport:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -271,6 +287,15 @@ extern const struct MVM_SeriesFetchedProperties {
 
 - (NSDate*)primitiveModified;
 - (void)setPrimitiveModified:(NSDate*)value;
+
+
+
+
+- (NSNumber*)primitivePartialImport;
+- (void)setPrimitivePartialImport:(NSNumber*)value;
+
+- (BOOL)primitivePartialImportValue;
+- (void)setPrimitivePartialImportValue:(BOOL)value_;
 
 
 

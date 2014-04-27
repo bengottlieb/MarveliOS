@@ -3,6 +3,13 @@
 
 #import "MVM_Image.h"
 
+#import "MVM_Series.h"
+#import "MVM_Story.h"
+#import "MVM_Character.h"
+#import "MVM_Comic.h"
+#import "MVM_Event.h"
+#import "MVM_Creator.h"
+
 @interface MVM_Object ()
 
 // Private interface goes here.
@@ -13,14 +20,32 @@
 @implementation MVM_Object
 
 + (instancetype) findObjectMatching: (NSDictionary *) serverObject inContext: (NSManagedObjectContext *) moc {
-	return [moc mv_anyObjectOfType: [self entityName] matchingPredicate: [NSPredicate predicateWithFormat: @"apiId == %@", serverObject[@"id"]]];
+	NSNumber				*apiId = serverObject[@"id"];
+	
+	if (apiId == nil) {
+		NSString			*idViaURI = [serverObject[@"resourceURI"] lastPathComponent];
+		
+		if (idViaURI) apiId = @([idViaURI integerValue]);
+	}
+	if (apiId == nil) return nil;
+	return [moc mv_anyObjectOfType: [self entityName] matchingPredicate: [NSPredicate predicateWithFormat: @"apiId == %@", apiId]];
 }
-			
+
++ (instancetype) importServerObject: (NSDictionary *) serverObject intoContext: (NSManagedObjectContext *) moc {
+	MVM_Object			*object = [[self class] findObjectMatching: serverObject inContext: moc];
+	
+	if (object == nil) object = [moc mv_insertNewEntityWithName: [[self class] entityName]];
+	[object updateFromServerObject: serverObject];
+	
+	return object;
+}
+
 + (NSString *) entityName { return @"";}
 
-- (void) importServerObject: (NSDictionary *) serverObject {
+- (void) updateFromServerObject: (NSDictionary *) serverObject {
 	NSDictionary				*props = self.entity.propertiesByName;
 	
+	self[@"partialImport"] = @(serverObject[@"id"] == nil);
 	for (NSString *key in serverObject) {
 		NSString					*field = [self convertServerFieldToObjectField: key];
 		NSAttributeDescription		*desc = props[field];
@@ -86,6 +111,65 @@
 	}
 }
 
+- (void) importSeries: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"series"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Series		*series = [MVM_Series importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (series) [existing addObject: series];
+	}
+}
+
+- (void) importCharacters: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"characters"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Character		*character = [MVM_Character importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (character) [existing addObject: character];
+	}
+}
+
+- (void) importStories: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"stories"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Story		*story = [MVM_Story importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (story) [existing addObject: story];
+	}
+}
+
+- (void) importComics: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"comics"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Comic		*comic = [MVM_Comic importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (comic) [existing addObject: comic];
+	}
+}
+
+- (void) importEvents: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"events"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Event		*event = [MVM_Event importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (event) [existing addObject: event];
+	}
+}
+
+- (void) importCreators: (NSDictionary *) info {
+	NSMutableSet			*existing = [self mutableSetValueForKey: @"creators"];
+	
+	for (NSDictionary *item in info[@"items"]) {
+		MVM_Creator		*creator = [MVM_Creator importServerObject: item intoContext: self.managedObjectContext];
+		
+		if (creator) [existing addObject: creator];
+	}
+}
 
 
 //================================================================================================================

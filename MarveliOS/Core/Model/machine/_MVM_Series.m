@@ -8,6 +8,7 @@ const struct MVM_SeriesAttributes MVM_SeriesAttributes = {
 	.apiId = @"apiId",
 	.endYear = @"endYear",
 	.modified = @"modified",
+	.partialImport = @"partialImport",
 	.rating = @"rating",
 	.resourceURI = @"resourceURI",
 	.startYear = @"startYear",
@@ -61,6 +62,11 @@ const struct MVM_SeriesFetchedProperties MVM_SeriesFetchedProperties = {
 	}
 	if ([key isEqualToString:@"endYearValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"endYear"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -137,6 +143,32 @@ const struct MVM_SeriesFetchedProperties MVM_SeriesFetchedProperties = {
 
 @dynamic modified;
 
+
+
+
+
+
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
+}
 
 
 

@@ -8,12 +8,12 @@ const struct MVM_CharacterAttributes MVM_CharacterAttributes = {
 	.apiId = @"apiId",
 	.modified = @"modified",
 	.name = @"name",
+	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 };
 
 const struct MVM_CharacterRelationships MVM_CharacterRelationships = {
 	.comics = @"comics",
-	.creators = @"creators",
 	.events = @"events",
 	.series = @"series",
 	.stories = @"stories",
@@ -52,6 +52,11 @@ const struct MVM_CharacterFetchedProperties MVM_CharacterFetchedProperties = {
 	
 	if ([key isEqualToString:@"apiIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"apiId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -109,6 +114,32 @@ const struct MVM_CharacterFetchedProperties MVM_CharacterFetchedProperties = {
 
 
 
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
 @dynamic resourceURI;
 
 
@@ -125,19 +156,6 @@ const struct MVM_CharacterFetchedProperties MVM_CharacterFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"comics"];
   
 	[self didAccessValueForKey:@"comics"];
-	return result;
-}
-	
-
-@dynamic creators;
-
-	
-- (NSMutableSet*)creatorsSet {
-	[self willAccessValueForKey:@"creators"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"creators"];
-  
-	[self didAccessValueForKey:@"creators"];
 	return result;
 }
 	

@@ -15,6 +15,7 @@ const struct MVM_ComicAttributes MVM_ComicAttributes = {
 	.issueNumber = @"issueNumber",
 	.modified = @"modified",
 	.pageCount = @"pageCount",
+	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 	.title = @"title",
 	.upc = @"upc",
@@ -81,6 +82,11 @@ const struct MVM_ComicFetchedProperties MVM_ComicFetchedProperties = {
 	}
 	if ([key isEqualToString:@"pageCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"pageCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -238,6 +244,32 @@ const struct MVM_ComicFetchedProperties MVM_ComicFetchedProperties = {
 
 - (void)setPrimitivePageCountValue:(int16_t)value_ {
 	[self setPrimitivePageCount:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
 }
 
 

@@ -11,11 +11,11 @@ const struct MVM_CreatorAttributes MVM_CreatorAttributes = {
 	.lastName = @"lastName",
 	.middleName = @"middleName",
 	.modified = @"modified",
+	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 };
 
 const struct MVM_CreatorRelationships MVM_CreatorRelationships = {
-	.characters = @"characters",
 	.comics = @"comics",
 	.events = @"events",
 	.series = @"series",
@@ -54,6 +54,11 @@ const struct MVM_CreatorFetchedProperties MVM_CreatorFetchedProperties = {
 	
 	if ([key isEqualToString:@"apiIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"apiId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -132,25 +137,38 @@ const struct MVM_CreatorFetchedProperties MVM_CreatorFetchedProperties = {
 
 
 
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
 @dynamic resourceURI;
 
 
 
 
 
-
-@dynamic characters;
-
-	
-- (NSMutableSet*)charactersSet {
-	[self willAccessValueForKey:@"characters"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"characters"];
-  
-	[self didAccessValueForKey:@"characters"];
-	return result;
-}
-	
 
 @dynamic comics;
 

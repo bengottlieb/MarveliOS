@@ -57,11 +57,9 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_Store, store);
 		NSMutableArray			*objectIDs = [NSMutableArray new];
 		
 		for (NSDictionary *serverObject in serverObjects) {
-			MVM_Object			*object = [objectClass findObjectMatching: serverObject inContext: moc];
-			
-			if (object == nil) object = [moc mv_insertNewEntityWithName: [objectClass entityName]];
-			[object importServerObject: serverObject];
-			[objectIDs addObject: object.objectID];
+			MVM_Object			*object = [objectClass importServerObject: serverObject intoContext: moc];
+
+			if (object) [objectIDs addObject: object.objectID];
 		}
 		
 		NSError				*error = nil;

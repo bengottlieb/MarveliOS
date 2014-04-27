@@ -16,6 +16,7 @@ extern const struct MVM_ComicAttributes {
 	__unsafe_unretained NSString *issueNumber;
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *pageCount;
+	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *title;
 	__unsafe_unretained NSString *upc;
@@ -50,6 +51,7 @@ extern const struct MVM_ComicFetchedProperties {
 @class MVM_Image;
 @class MVM_URL;
 @class MVM_Comic;
+
 
 
 
@@ -201,6 +203,20 @@ extern const struct MVM_ComicFetchedProperties {
 - (void)setPageCountValue:(int16_t)value_;
 
 //- (BOOL)validatePageCount:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* partialImport;
+
+
+
+@property BOOL partialImportValue;
+- (BOOL)partialImportValue;
+- (void)setPartialImportValue:(BOOL)value_;
+
+//- (BOOL)validatePartialImport:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -442,6 +458,15 @@ extern const struct MVM_ComicFetchedProperties {
 
 - (int16_t)primitivePageCountValue;
 - (void)setPrimitivePageCountValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitivePartialImport;
+- (void)setPrimitivePartialImport:(NSNumber*)value;
+
+- (BOOL)primitivePartialImportValue;
+- (void)setPrimitivePartialImportValue:(BOOL)value_;
 
 
 

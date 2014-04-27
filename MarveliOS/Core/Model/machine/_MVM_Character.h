@@ -9,12 +9,12 @@ extern const struct MVM_CharacterAttributes {
 	__unsafe_unretained NSString *apiId;
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
 } MVM_CharacterAttributes;
 
 extern const struct MVM_CharacterRelationships {
 	__unsafe_unretained NSString *comics;
-	__unsafe_unretained NSString *creators;
 	__unsafe_unretained NSString *events;
 	__unsafe_unretained NSString *series;
 	__unsafe_unretained NSString *stories;
@@ -26,12 +26,12 @@ extern const struct MVM_CharacterFetchedProperties {
 } MVM_CharacterFetchedProperties;
 
 @class MVM_Comic;
-@class MVM_Creator;
 @class MVM_Event;
 @class MVM_Series;
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -96,6 +96,20 @@ extern const struct MVM_CharacterFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* partialImport;
+
+
+
+@property BOOL partialImportValue;
+- (BOOL)partialImportValue;
+- (void)setPartialImportValue:(BOOL)value_;
+
+//- (BOOL)validatePartialImport:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* resourceURI;
 
 
@@ -109,13 +123,6 @@ extern const struct MVM_CharacterFetchedProperties {
 @property (nonatomic, strong) NSSet *comics;
 
 - (NSMutableSet*)comicsSet;
-
-
-
-
-@property (nonatomic, strong) NSSet *creators;
-
-- (NSMutableSet*)creatorsSet;
 
 
 
@@ -165,11 +172,6 @@ extern const struct MVM_CharacterFetchedProperties {
 - (void)addComicsObject:(MVM_Comic*)value_;
 - (void)removeComicsObject:(MVM_Comic*)value_;
 
-- (void)addCreators:(NSSet*)value_;
-- (void)removeCreators:(NSSet*)value_;
-- (void)addCreatorsObject:(MVM_Creator*)value_;
-- (void)removeCreatorsObject:(MVM_Creator*)value_;
-
 - (void)addEvents:(NSSet*)value_;
 - (void)removeEvents:(NSSet*)value_;
 - (void)addEventsObject:(MVM_Event*)value_;
@@ -217,6 +219,15 @@ extern const struct MVM_CharacterFetchedProperties {
 
 
 
+- (NSNumber*)primitivePartialImport;
+- (void)setPrimitivePartialImport:(NSNumber*)value;
+
+- (BOOL)primitivePartialImportValue;
+- (void)setPrimitivePartialImportValue:(BOOL)value_;
+
+
+
+
 - (NSString*)primitiveResourceURI;
 - (void)setPrimitiveResourceURI:(NSString*)value;
 
@@ -226,11 +237,6 @@ extern const struct MVM_CharacterFetchedProperties {
 
 - (NSMutableSet*)primitiveComics;
 - (void)setPrimitiveComics:(NSMutableSet*)value;
-
-
-
-- (NSMutableSet*)primitiveCreators;
-- (void)setPrimitiveCreators:(NSMutableSet*)value;
 
 
 

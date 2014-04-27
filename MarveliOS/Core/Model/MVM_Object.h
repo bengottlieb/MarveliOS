@@ -2,8 +2,10 @@
 
 @interface MVM_Object : NSManagedObject {}
 
+
++ (instancetype) importServerObject: (NSDictionary *) serverObject intoContext: (NSManagedObjectContext *) moc;
 + (instancetype) findObjectMatching: (NSDictionary *) serverObject inContext: (NSManagedObjectContext *) moc;
-- (void) importServerObject: (NSDictionary *) serverObject;
+- (void) updateFromServerObject: (NSDictionary *) serverObject;
 
 + (NSString *) entityName;
 

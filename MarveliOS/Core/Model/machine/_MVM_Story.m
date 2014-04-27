@@ -7,6 +7,7 @@ const struct MVM_StoryAttributes MVM_StoryAttributes = {
 	.apiDescription = @"apiDescription",
 	.apiId = @"apiId",
 	.modified = @"modified",
+	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
 	.type = @"type",
 };
@@ -55,6 +56,11 @@ const struct MVM_StoryFetchedProperties MVM_StoryFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"partialImportValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"partialImport"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -97,6 +103,32 @@ const struct MVM_StoryFetchedProperties MVM_StoryFetchedProperties = {
 
 @dynamic modified;
 
+
+
+
+
+
+@dynamic partialImport;
+
+
+
+- (BOOL)partialImportValue {
+	NSNumber *result = [self partialImport];
+	return [result boolValue];
+}
+
+- (void)setPartialImportValue:(BOOL)value_ {
+	[self setPartialImport:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePartialImportValue {
+	NSNumber *result = [self primitivePartialImport];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePartialImportValue:(BOOL)value_ {
+	[self setPrimitivePartialImport:[NSNumber numberWithBool:value_]];
+}
 
 
 

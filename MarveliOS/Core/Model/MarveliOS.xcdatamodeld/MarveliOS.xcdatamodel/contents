@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Character" representedClassName="MVM_Character" syncable="YES">
         <attribute name="apiDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="apiId" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="characters" inverseEntity="Comic" syncable="YES"/>
-        <relationship name="creators" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Creator" inverseName="characters" inverseEntity="Creator" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="characters" inverseEntity="Event" syncable="YES"/>
         <relationship name="series" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Series" inverseName="characters" inverseEntity="Series" syncable="YES"/>
         <relationship name="stories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Story" inverseName="characters" inverseEntity="Story" syncable="YES"/>
@@ -26,6 +26,7 @@
         <attribute name="issueNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="pageCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="upc" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,8 +62,8 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="creators" inverseEntity="Character" syncable="YES"/>
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="creators" inverseEntity="Comic" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="creators" inverseEntity="Event" syncable="YES"/>
         <relationship name="series" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Series" inverseName="creators" inverseEntity="Series" syncable="YES"/>
@@ -74,6 +75,7 @@
         <attribute name="apiId" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="end" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -100,6 +102,7 @@
         <attribute name="apiId" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="endYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -117,6 +120,7 @@
         <attribute name="apiDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="apiId" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="stories" inverseEntity="Character" syncable="YES"/>
@@ -139,14 +143,14 @@
     </entity>
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="225"/>
-        <element name="Comic" positionX="-63" positionY="27" width="128" height="433"/>
+        <element name="Comic" positionX="-63" positionY="27" width="128" height="448"/>
         <element name="ComicPrice" positionX="-18" positionY="135" width="128" height="88"/>
         <element name="ComicText" positionX="-36" positionY="153" width="128" height="103"/>
-        <element name="Creator" positionX="-27" positionY="162" width="128" height="255"/>
-        <element name="Event" positionX="9" positionY="180" width="128" height="255"/>
+        <element name="Creator" positionX="-27" positionY="162" width="128" height="253"/>
+        <element name="Event" positionX="9" positionY="180" width="128" height="270"/>
         <element name="Image" positionX="-54" positionY="117" width="128" height="163"/>
-        <element name="Series" positionX="27" positionY="189" width="128" height="285"/>
-        <element name="Story" positionX="-9" positionY="171" width="128" height="225"/>
+        <element name="Series" positionX="27" positionY="189" width="128" height="300"/>
+        <element name="Story" positionX="-9" positionY="171" width="128" height="240"/>
         <element name="URL" positionX="-9" positionY="144" width="128" height="163"/>
     </elements>
 </model>
