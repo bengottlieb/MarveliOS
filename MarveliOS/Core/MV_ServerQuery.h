@@ -1,5 +1,5 @@
 //
-//  MV_Query.h
+//  MV_ServerQuery.h
 //  MarveliOS
 //
 //  Created by Ben Gottlieb on 4/26/14.
@@ -11,7 +11,7 @@
 
 #define		MV_QUERY_FETCH_ALL			(-1)
 
-@interface MV_Query : NSObject
+@interface MV_ServerQuery : NSObject
 
 + (instancetype) queryWithFragment: (NSString *) fragment andParameters: (NSDictionary *) params;
 
@@ -27,6 +27,6 @@
 @property (nonatomic) MV_Object_type objectServerType;
 
 
-- (MV_Query *) fetchWithCompletion: (mv_queryCompletedBlock) completion;
+- (MV_ServerQuery *) fetchWithCompletion: (mv_queryCompletedBlock) completion;
 
 @end

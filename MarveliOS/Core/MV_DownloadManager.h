@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MV_Query;
+@class MV_ServerQuery;
 
 @interface MV_DownloadManager : NSObject
 

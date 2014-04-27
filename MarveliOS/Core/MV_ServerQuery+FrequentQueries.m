@@ -1,16 +1,16 @@
 //
-//  MV_Query+FrequentQueries.m
+//  MV_ServerQuery+FrequentQueries.m
 //  MarveliOS
 //
 //  Created by Ben Gottlieb on 4/26/14.
 //  Copyright (c) 2014 Stand Alone, Inc. All rights reserved.
 //
 
-#import "MV_Query+FrequentQueries.h"
+#import "MV_ServerQuery+FrequentQueries.h"
 
-@implementation MV_Query (FrequentQueries)
+@implementation MV_ServerQuery (FrequentQueries)
 
-+ (MV_Query *) queryForObjectsOfType: (MV_Object_type) type withSearchText: (NSString *) text {
++ (MV_ServerQuery *) queryForObjectsOfType: (MV_Object_type) type withSearchText: (NSString *) text {
 	NSString				*fragment = nil;
 	NSDictionary			*params = nil;
 	
@@ -27,14 +27,14 @@
 			return nil;
 	}
 	
-	MV_Query		*query = [self queryWithFragment: fragment andParameters: params];
+	MV_ServerQuery		*query = [self queryWithFragment: fragment andParameters: params];
 	
 	query.objectServerType = type;
 	return query;
 }
 
-+ (MV_Query *) queryForAllObjectsOfType: (MV_Object_type) type {
-	MV_Query		*query = [self queryForObjectsOfType: type withSearchText: nil];
++ (MV_ServerQuery *) queryForAllObjectsOfType: (MV_Object_type) type {
+	MV_ServerQuery		*query = [self queryForObjectsOfType: type withSearchText: nil];
 	
 	query.numberToFetch = MV_QUERY_FETCH_ALL;
 	return query;

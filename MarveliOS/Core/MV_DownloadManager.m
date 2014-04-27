@@ -7,7 +7,7 @@
 //
 
 #import "MV_DownloadManager.h"
-#import "MV_Query.h"
+#import "MV_ServerQuery.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @interface MV_DownloadManager () <NSURLSessionDelegate, NSURLSessionDataDelegate>

@@ -1,16 +1,16 @@
 //
-//  MV_Query.m
+//  MV_ServerQuery.m
 //  MarveliOS
 //
 //  Created by Ben Gottlieb on 4/26/14.
 //  Copyright (c) 2014 Stand Alone, Inc. All rights reserved.
 //
 
-#import "MV_Query.h"
+#import "MV_ServerQuery.h"
 #import "MV_DownloadManager.h"
 #import "MV_Store.h"
 
-@interface MV_Query ()
+@interface MV_ServerQuery ()
 @property (nonatomic, strong) NSString *fragment;
 @property (nonatomic, strong) NSDictionary *parameters;
 @property (nonatomic, strong) NSMutableArray *collectedResults;
@@ -20,10 +20,10 @@
 @property (nonatomic, copy) mv_queryCompletedBlock completion;
 @end
 
-@implementation MV_Query
+@implementation MV_ServerQuery
 
 + (instancetype) queryWithFragment: (NSString *) fragment andParameters: (NSDictionary *) params {
-	MV_Query				*query = [self new];
+	MV_ServerQuery				*query = [self new];
 	
 	query.fragment = fragment;
 	query.parameters = params;
@@ -38,7 +38,7 @@
 	return query;
 }
 
-- (MV_Query *) fetchWithCompletion: (mv_queryCompletedBlock) completion {
+- (MV_ServerQuery *) fetchWithCompletion: (mv_queryCompletedBlock) completion {
 	self.collectedResults = [NSMutableArray array];
 	self.completion = completion;
 	
