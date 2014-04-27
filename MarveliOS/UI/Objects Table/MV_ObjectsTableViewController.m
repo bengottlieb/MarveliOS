@@ -171,6 +171,7 @@
 	
 	cell.textLabel.text = object.mainTableText;
 	cell.tag = indexPath.hash;
+	cell.imageView.image = nil;
 	
 	[object fetchThumbnailWithCompletion:^(UIImage *image, NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
@@ -190,6 +191,7 @@
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
 	controller.view = imageView;
 	controller.title = object.mainTableText;
+	
 	[imageView addSubview: [self disclaimerLabelForView: imageView]];
 	
 	[self.navigationController pushViewController: controller animated: YES];
