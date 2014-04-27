@@ -169,5 +169,23 @@
 	return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	MVM_Object					*object = [self.fetchedResultsController.sections[indexPath.section] objects][indexPath.row];
+	
+	UIViewController			*controller = [UIViewController new];
+	UIImageView					*imageView = [[UIImageView alloc] initWithFrame: self.view.bounds];
+	
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	controller.view = imageView;
+	controller.title = object.mainTableText;
+	
+	[self.navigationController pushViewController: controller animated: YES];
+	[object fetchFullScreenImageWithCompletion:^(UIImage *image, NSError *error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			imageView.image = image;
+		});
+	}];
+
+}
 
 @end

@@ -214,6 +214,16 @@ static NSMutableSet			*s_pendingUpdates = nil;
 	}];
 }
 
+- (void) fetchFullScreenImageWithCompletion: (mv_imageDownloadCompletionBlock) completion {
+	if (self[@"thumbnail"] == nil) {
+		completion(nil, nil);
+	} else [[MV_DownloadManager defaultManager] downloadImageWithPath: self[@"thumbnail"][@"path"] ofSize: MV_Image_size_portrait_uncanny extension: self[@"thumbnail"][@"extension"] andCompletion:^(UIImage *image, NSError *error) {
+		completion(image, error);
+	}];
+}
+
+
+
 
 //================================================================================================================
 #pragma mark display

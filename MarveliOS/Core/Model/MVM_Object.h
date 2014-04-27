@@ -18,7 +18,7 @@
 - (void) fetchUpdateFromServerToDepth: (NSUInteger) depth;
 
 - (void) fetchThumbnailWithCompletion: (mv_imageDownloadCompletionBlock) completion;
-
+- (void) fetchFullScreenImageWithCompletion: (mv_imageDownloadCompletionBlock) completion;
 
 - (id) objectForKeyedSubscript: (id) key;
 - (void) setObject: (id) obj forKeyedSubscript: (id) key;
