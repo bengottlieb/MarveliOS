@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSOperationQueue *queue;
+@property (nonatomic) unsigned long activityIndicatorCount;
+@property (nonatomic) unsigned long timeStamp;
 @end
 
 
@@ -23,8 +25,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 - (id) init {
 	if (self = [super init]) {		
 		self.apiVersion = 1;
+		self.useNetworkActivityIndictor = YES;
 		self.timeStamp = [NSDate timeIntervalSinceReferenceDate];
 		self.queue = [NSOperationQueue new];
+		self.apiLimitHitBlock = ^{ [UIAlertView showAlertWithTitle: @"API Limit Reached" message: @"You've reached your API limit for the day. Come back tomrorow!"]; };
 	}
 	return self;
 }
@@ -94,7 +98,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 		if (error == nil) switch (statusCode) {
 			case 401:
 			case 409: error = [NSError errorWithDomain: MV_ErrorDomain code: MV_Error_missingAPIKeys userInfo: nil]; break;
-			case 429: error = [NSError errorWithDomain: MV_ErrorDomain code: MV_Error_rateLimitExceeded userInfo: nil]; break;
+			case 429:
+				error = [NSError errorWithDomain: MV_ErrorDomain code: MV_Error_rateLimitExceeded userInfo: nil];
+				if (self.apiLimitHitBlock) self.apiLimitHitBlock();
+				break;
 			default: break;
 		}
 		
@@ -159,13 +166,15 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 - (void) setActivityIndicatorCount: (unsigned long) activityIndicatorCount {
 	if (activityIndicatorCount == _activityIndicatorCount) return;
 	
-	BOOL				shouldShow = (_activityIndicatorCount == 0);
-	BOOL				shouldHide = (activityIndicatorCount == 0);
-	
-	if (shouldShow || shouldHide) dispatch_async(dispatch_get_main_queue(), ^{
-		if (shouldShow) [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-		if (shouldHide) [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	});
+	if (self.useNetworkActivityIndictor) {
+		BOOL				shouldShow = (_activityIndicatorCount == 0);
+		BOOL				shouldHide = (activityIndicatorCount == 0);
+		
+		if (shouldShow || shouldHide) dispatch_async(dispatch_get_main_queue(), ^{
+			if (shouldShow) [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+			if (shouldHide) [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+		});
+	}
 	_activityIndicatorCount = activityIndicatorCount;
 }
 

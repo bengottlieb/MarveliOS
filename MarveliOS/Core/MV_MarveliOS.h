@@ -17,6 +17,7 @@ typedef void (^mv_queryCompletedBlock)(NSError *error);
 typedef void (^mv_progressBlock)(CGFloat percentComplete);
 typedef void (^mv_contextBlock)(NSManagedObjectContext *moc);
 typedef void (^mv_importCompletionBlock)(NSArray *importedObjectIDs);
+typedef void (^mv_simpleBlock)();
 
 typedef NS_ENUM(NSUInteger, MV_Object_type) {
 	MV_Object_type_none,
