@@ -74,7 +74,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 					self[field] = value;
 					break;
 			}
-		} else {
+		} else if (value){
 			NSString			*importer = [NSString stringWithFormat: @"import%@:toDepth:", [field capitalizedString]];
 			SEL					sel = NSSelectorFromString(importer);
 			
