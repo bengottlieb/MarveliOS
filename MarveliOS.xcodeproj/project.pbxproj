@@ -31,6 +31,7 @@
 		B548C263190C7FD700E2427A /* MVM_URL.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C24D190C7FD700E2427A /* MVM_URL.m */; };
 		B548C266190C805800E2427A /* MV_Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C265190C805800E2427A /* MV_Store.m */; };
 		B548C268190C834300E2427A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B548C267190C834300E2427A /* CoreData.framework */; };
+		B548C26B190C8BA600E2427A /* NSManagedObjectContext+MV_.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */; };
 		B596E9B2190BBDB5006619D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B1190BBDB5006619D6 /* Foundation.framework */; };
 		B596E9B4190BBDB5006619D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */; };
 		B596E9B6190BBDB5006619D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B5190BBDB5006619D6 /* UIKit.framework */; };
@@ -108,6 +109,8 @@
 		B548C264190C805800E2427A /* MV_Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MV_Store.h; sourceTree = "<group>"; };
 		B548C265190C805800E2427A /* MV_Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MV_Store.m; sourceTree = "<group>"; };
 		B548C267190C834300E2427A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+MV_.h"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.h"; sourceTree = "<group>"; };
+		B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+MV_.m"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.m"; sourceTree = "<group>"; };
 		B596E9AE190BBDB5006619D6 /* MarveliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarveliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B596E9B1190BBDB5006619D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -309,6 +312,8 @@
 				B5A8C27F190BF19A009EAA89 /* MV_Query.m */,
 				B5A8C282190C14EB009EAA89 /* MV_Query+FrequentQueries.h */,
 				B5A8C283190C14EB009EAA89 /* MV_Query+FrequentQueries.m */,
+				B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */,
+				B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */,
 				B548C220190C7FD700E2427A /* Model */,
 			);
 			name = Core;
@@ -447,6 +452,7 @@
 				B548C255190C7FD700E2427A /* _MVM_Series.m in Sources */,
 				B5A8C288190C16E9009EAA89 /* MV_BasicSearchViewController.m in Sources */,
 				B548C263190C7FD700E2427A /* MVM_URL.m in Sources */,
+				B548C26B190C8BA600E2427A /* NSManagedObjectContext+MV_.m in Sources */,
 				B548C25A190C7FD700E2427A /* MVM_Comic.m in Sources */,
 				B548C254190C7FD700E2427A /* _MVM_Image.m in Sources */,
 				B548C259190C7FD700E2427A /* MVM_Character.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "MV_Query.h"
 #import "MV_DownloadManager.h"
+#import "MV_Store.h"
 
 @interface MV_Query ()
 @property (nonatomic, strong) NSString *fragment;
@@ -26,6 +27,7 @@
 	
 	query.fragment = fragment;
 	query.parameters = params;
+	query.cacheResults = YES;
 	return query;
 }
 
@@ -58,7 +60,12 @@
 				if (self.progressBlock) self.progressBlock( ((float) self.count) / ((float) (self.fetchAll ? self.total : self.fetchCount)) );
 				[self continueFetch];
 			} else {
-				self.completion(error);
+				if (self.cacheResults && self.objectServerType != MV_Object_type_none)
+					[[MV_Store store] importServerObjects: self.results ofType: self.objectServerType withCompletion: ^(NSArray *importedObjectIDs) {
+						self.completion(error);
+					}];
+				else
+					self.completion(error);
 			}
 		} else
 			self.completion(error);

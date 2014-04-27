@@ -21,7 +21,8 @@
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSString *attributionText, *attributionHTML, *copyright;
 @property (nonatomic, readonly) NSUInteger count, total;
-
+@property (nonatomic) BOOL cacheResults;
+@property (nonatomic) MV_Object_type objectServerType;
 
 
 - (MV_Query *) fetch: (NSUInteger) count withCompletion: (mv_queryCompletedBlock) completion;

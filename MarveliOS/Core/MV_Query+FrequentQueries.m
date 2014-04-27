@@ -10,20 +10,25 @@
 
 @implementation MV_Query (FrequentQueries)
 
-+ (MV_Query *) queryForResultType: (MV_Query_result_type) type withSearchText: (NSString *) text {
++ (MV_Query *) queryForResultType: (MV_Object_type) type withSearchText: (NSString *) text {
 	NSString				*fragment = nil;
 	NSDictionary			*params = nil;
 	
 	switch (type) {
-		case MV_Query_result_type_character: fragment = @"characters"; params = @{ @"nameStartsWith": text }; break;
-		case MV_Query_result_type_comic: return nil;			//can't search by string
-		case MV_Query_result_type_creator: fragment = @"creators"; params = @{ @"nameStartsWith": text }; break;
-		case MV_Query_result_type_event: fragment = @"events"; params = @{ @"nameStartsWith": text }; break;
-		case MV_Query_result_type_series: fragment = @"series"; params = @{ @"titleStartsWith": text }; break;
-		case MV_Query_result_type_story: return nil;			//can't search by string;
+		case MV_Object_type_character: fragment = @"characters"; params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_creator: fragment = @"creators"; params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_event: fragment = @"events"; params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_series: fragment = @"series"; params = @{ @"titleStartsWith": text }; break;
+		case MV_Object_type_story:
+		case MV_Object_type_comic:
+		default:
+			return nil;
 	}
 	
-	return [self queryWithFragment: fragment andParameters: params];
+	MV_Query		*query = [self queryWithFragment: fragment andParameters: params];
+	
+	query.objectServerType = type;
+	return query;
 }
 
 @end

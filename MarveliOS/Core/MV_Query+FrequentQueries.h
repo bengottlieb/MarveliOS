@@ -8,17 +8,8 @@
 
 #import "MV_Query.h"
 
-typedef NS_ENUM(NSUInteger, MV_Query_result_type) {
-	MV_Query_result_type_character,
-	MV_Query_result_type_comic,
-	MV_Query_result_type_creator,
-	MV_Query_result_type_event,
-	MV_Query_result_type_series,
-	MV_Query_result_type_story
-};
-
 @interface MV_Query (FrequentQueries)
 
-+ (MV_Query *) queryForResultType: (MV_Query_result_type) type withSearchText: (NSString *) text;
++ (MV_Query *) queryForResultType: (MV_Object_type) type withSearchText: (NSString *) text;
 
 @end

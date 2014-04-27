@@ -15,6 +15,7 @@
 @interface MV_Store : NSObject
 SINGLETON_INTERFACE_FOR_CLASS_AND_METHOD(MV_Store, store);
 
-@property (nonatomic, readonly) NSManagedObjectContext *moc;
+- (void) performBlockInMOCContext: (mv_contextBlock) block;
+- (void) importServerObjects: (NSArray *) serverObjects ofType: (MV_Object_type) type withCompletion: (mv_importCompletionBlock) completion;
 
 @end
