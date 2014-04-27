@@ -16,11 +16,11 @@
 + (instancetype) queryWithFragment: (NSString *) fragment andParameters: (NSDictionary *) params;
 
 @property (nonatomic, copy) mv_progressBlock progressBlock;
-@property (nonatomic) long offset, numberToFetch;
+@property (nonatomic) long numberToFetch;
 
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSString *attributionText, *attributionHTML, *copyright;
-@property (nonatomic, readonly) NSUInteger count, total;
+@property (nonatomic, readonly) unsigned long count, total;
 @property (nonatomic) BOOL cacheResults;
 @property (nonatomic) MV_Object_type objectServerType;
 

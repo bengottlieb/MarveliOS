@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *collectedResults;
 @property (nonatomic, strong) NSArray *results;
 @property (nonatomic, strong) NSString *attributionText, *attributionHTML, *copyright, *etag;
-@property (nonatomic, readwrite) NSUInteger count, total;
+@property (nonatomic, readwrite) unsigned long count, total, offset;
 @property (nonatomic, copy) mv_queryCompletedBlock completion;
 @end
 
