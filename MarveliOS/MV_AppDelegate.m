@@ -7,9 +7,13 @@
 //
 
 #import "MV_AppDelegate.h"
-#import "MV_Query.h"
+#import "MV_ServerQuery+FrequentQueries.h"
 #import "MV_DownloadManager.h"
-#import "MV_BasicSearchViewController.h"
+#import "MV_ObjectsTableViewController.h"
+
+@interface MV_AppDelegate ()
+@property (nonatomic, strong) MV_ObjectsTableViewController *objectsTableController;
+@end
 
 @implementation MV_AppDelegate
 
@@ -21,12 +25,42 @@
 
     
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [MV_BasicSearchViewController new]];
+	
+	self.objectsTableController = [MV_ObjectsTableViewController controllerForObjectType: MV_Object_type_character];
+	
+	UISegmentedControl		*segs = [[UISegmentedControl alloc] initWithFrame: CGRectMake(0, 0, 200, 33)];
+	
+	[segs insertSegmentWithTitle: @"Characters" atIndex: 0 animated: NO];
+	[segs insertSegmentWithTitle: @"Creators" atIndex: 1 animated: NO];
+	[segs insertSegmentWithTitle: @"Series" atIndex: 2 animated: NO];
+	[segs insertSegmentWithTitle: @"Events" atIndex: 3 animated: NO];
+	[segs addTarget: self action: @selector(objectTableContentsChanged:) forControlEvents: UIControlEventValueChanged];
+	segs.selectedSegmentIndex = 0;
+	
+	self.objectsTableController.navigationItem.titleView = segs;
+	
+	
+	self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: self.objectsTableController];
+	
+	
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    return YES;
+
+	//MV_Object_type		types[] = { MV_Object_type_character, MV_Object_type_creator, MV_Object_type_event, MV_Object_type_series };
+	
+//	MV_ServerQuery			*query = [MV_ServerQuery queryForAllObjectsOfType: MV_Object_type_character];
+//	[query fetchWithCompletion:^(NSError *error) {}];
+
+	return YES;
 }
+
+- (void) objectTableContentsChanged: (UISegmentedControl *) control {
+	MV_Object_type			types[] = {MV_Object_type_character, MV_Object_type_creator, MV_Object_type_series, MV_Object_type_event };
+	
+	self.objectsTableController.objectType = types[control.selectedSegmentIndex];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

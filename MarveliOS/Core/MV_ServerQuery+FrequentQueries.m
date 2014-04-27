@@ -21,8 +21,8 @@
 		case MV_Object_type_creator: fragment = @"creators"; if (text.length) params = @{ @"nameStartsWith": text }; break;
 		case MV_Object_type_event: fragment = @"events"; if (text.length) params = @{ @"nameStartsWith": text }; break;
 		case MV_Object_type_series: fragment = @"series"; if (text.length) params = @{ @"titleStartsWith": text }; break;
-		case MV_Object_type_story: fragment = @"story"; break;
-		case MV_Object_type_comic: fragment = @"comic"; break;
+		case MV_Object_type_story: fragment = @"stories"; break; 
+		case MV_Object_type_comic: fragment = @"comics"; break;
 		default:
 			return nil;
 	}
@@ -36,7 +36,7 @@
 + (MV_ServerQuery *) queryForAllObjectsOfType: (MV_Object_type) type {
 	MV_ServerQuery		*query = [self queryForObjectsOfType: type withSearchText: nil];
 	
-	query.numberToFetch = 100;//MV_QUERY_FETCH_ALL;
+	query.numberToFetch = MV_QUERY_FETCH_ALL;
 	return query;
 }
 @end

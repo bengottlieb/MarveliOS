@@ -21,6 +21,7 @@ const struct MVM_CreatorRelationships MVM_CreatorRelationships = {
 	.events = @"events",
 	.series = @"series",
 	.stories = @"stories",
+	.thumbnail = @"thumbnail",
 	.urls = @"urls",
 };
 
@@ -228,6 +229,10 @@ const struct MVM_CreatorFetchedProperties MVM_CreatorFetchedProperties = {
 	[self didAccessValueForKey:@"stories"];
 	return result;
 }
+	
+
+@dynamic thumbnail;
+
 	
 
 @dynamic urls;

@@ -15,5 +15,6 @@
 - (NSString *) titleInitial { return [self.title substringToIndex: 1]; }
 + (NSString *) userVisibleName { return @"story"; }
 + (NSString *) userVisiblePluralName  { return @"stories"; }
+- (NSString *) mainTableText { return self.title; };
 
 @end

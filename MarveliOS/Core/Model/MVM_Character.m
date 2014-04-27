@@ -14,4 +14,5 @@
 - (NSString *) nameInitial { return [self.name substringToIndex: 1]; }
 + (NSString *) userVisibleName { return @"character"; }
 + (NSString *) userVisiblePluralName  { return @"characters"; }
+- (NSString *) mainTableText { return self.name; };
 @end

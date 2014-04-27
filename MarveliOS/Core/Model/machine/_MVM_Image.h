@@ -13,6 +13,7 @@ extern const struct MVM_ImageRelationships {
 	__unsafe_unretained NSString *character;
 	__unsafe_unretained NSString *comic;
 	__unsafe_unretained NSString *comicImage;
+	__unsafe_unretained NSString *creator;
 	__unsafe_unretained NSString *event;
 	__unsafe_unretained NSString *series;
 	__unsafe_unretained NSString *story;
@@ -24,6 +25,7 @@ extern const struct MVM_ImageFetchedProperties {
 @class MVM_Character;
 @class MVM_Comic;
 @class MVM_Comic;
+@class MVM_Creator;
 @class MVM_Event;
 @class MVM_Series;
 @class MVM_Story;
@@ -85,6 +87,13 @@ extern const struct MVM_ImageFetchedProperties {
 
 
 
+@property (nonatomic, strong) MVM_Creator *creator;
+
+//- (BOOL)validateCreator:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) MVM_Event *event;
 
 //- (BOOL)validateEvent:(id*)value_ error:(NSError**)error_;
@@ -141,6 +150,11 @@ extern const struct MVM_ImageFetchedProperties {
 
 - (MVM_Comic*)primitiveComicImage;
 - (void)setPrimitiveComicImage:(MVM_Comic*)value;
+
+
+
+- (MVM_Creator*)primitiveCreator;
+- (void)setPrimitiveCreator:(MVM_Creator*)value;
 
 
 

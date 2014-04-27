@@ -65,6 +65,11 @@ static NSMutableSet			*s_pendingUpdates = nil;
 			switch (desc.attributeType) {
 				case NSDateAttributeType:
 					break;
+					
+				case NSStringAttributeType:
+					self[field] = [value isKindOfClass: [NSString class]] ? value : [NSString stringWithFormat: @"%@", value];
+					break;
+					
 				default:
 					self[field] = value;
 					break;
@@ -76,7 +81,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 			_Pragma("clang diagnostic push") \
 			_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
 			if ([self respondsToSelector: sel]) //[self performSelector: sel withObject: serverObject[key]];
-				objc_msgSend(self, sel, serverObject[key], @(depth));
+				objc_msgSend(self, sel, value, @(depth));
 			_Pragma("clang diagnostic pop") \
 		}
 	}
@@ -211,12 +216,15 @@ static NSMutableSet			*s_pendingUpdates = nil;
 
 
 //================================================================================================================
-#pragma mark Utility
+#pragma mark display
 
 + (NSString *) defaultSortKey { return @"name"; }
 + (NSString *) userVisibleName { return @""; }
 + (NSString *) userVisiblePluralName  { return @""; }
+- (NSString *) mainTableText { return @""; };
 
+//================================================================================================================
+#pragma mark Utility
 - (NSString *) convertServerFieldToObjectField: (NSString *) field {
 	if ([field isEqual: @"id"]) return @"apiId";
 	if ([field isEqual: @"description"]) return @"apiDescription";

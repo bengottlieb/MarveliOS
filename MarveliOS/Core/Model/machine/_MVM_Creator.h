@@ -22,6 +22,7 @@ extern const struct MVM_CreatorRelationships {
 	__unsafe_unretained NSString *events;
 	__unsafe_unretained NSString *series;
 	__unsafe_unretained NSString *stories;
+	__unsafe_unretained NSString *thumbnail;
 	__unsafe_unretained NSString *urls;
 } MVM_CreatorRelationships;
 
@@ -32,6 +33,7 @@ extern const struct MVM_CreatorFetchedProperties {
 @class MVM_Event;
 @class MVM_Series;
 @class MVM_Story;
+@class MVM_Image;
 @class MVM_URL;
 
 
@@ -194,6 +196,13 @@ extern const struct MVM_CreatorFetchedProperties {
 
 
 
+@property (nonatomic, strong) MVM_Image *thumbnail;
+
+//- (BOOL)validateThumbnail:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSSet *urls;
 
 - (NSMutableSet*)urlsSet;
@@ -320,6 +329,11 @@ extern const struct MVM_CreatorFetchedProperties {
 
 - (NSMutableSet*)primitiveStories;
 - (void)setPrimitiveStories:(NSMutableSet*)value;
+
+
+
+- (MVM_Image*)primitiveThumbnail;
+- (void)setPrimitiveThumbnail:(MVM_Image*)value;
 
 
 

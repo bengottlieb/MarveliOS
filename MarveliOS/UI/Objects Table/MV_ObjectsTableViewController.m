@@ -16,7 +16,6 @@
 
 @interface MV_ObjectsTableViewController () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic) MV_Object_type objectType;
 @property (nonatomic, strong) NSString *sortKey;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, weak) Class objectTypeClass;
@@ -50,17 +49,8 @@
 	NSFetchRequest				*request = self.fetchRequest;
 	NSError						*error = nil;
 	
-	
-	if ([[MV_Store store].mainThreadContext countForFetchRequest: request error: &error] == 0) {
-		UIAlertView			*alert = [[UIAlertView alloc] initWithTitle: [NSString stringWithFormat: @"Updating %@…", [self.objectTypeClass userVisiblePluralName]] message: nil delegate: nil cancelButtonTitle: nil otherButtonTitles: nil];
-		[alert show];
-		[[MV_ServerQuery queryForAllObjectsOfType: self.objectType] fetchWithCompletion:^(NSError *error) {
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[alert dismissWithClickedButtonIndex: 0 animated: YES];
-			});
-		}];
-	}
-	
+	[NSFetchedResultsController deleteCacheWithName: nil];
+
 	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request
 																		managedObjectContext: [MV_Store store].mainThreadContext
 																		  sectionNameKeyPath: [self.sortKey stringByAppendingString: @"Initial"]
@@ -69,6 +59,30 @@
 	
 	self.fetchedResultsController.delegate = self;
 	[self.fetchedResultsController performFetch: &error];
+	[self.tableView reloadData];
+
+	
+	if ([[MV_Store store].mainThreadContext countForFetchRequest: request error: &error] == 0) {
+		NSString					*title = [NSString stringWithFormat: @"Updating %@", [self.objectTypeClass userVisiblePluralName]];
+		__block UIAlertView			*alert = [[UIAlertView alloc] initWithTitle: title message: @"Downloading…" delegate: nil cancelButtonTitle: nil otherButtonTitles: nil];
+		[alert show];
+		
+		MV_ServerQuery				*query = [MV_ServerQuery queryForAllObjectsOfType: self.objectType];
+		query.progressBlock = ^(CGFloat progress) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[alert dismissWithClickedButtonIndex: 0 animated: NO];
+				alert = [[UIAlertView alloc] initWithTitle: title message: [NSString stringWithFormat: @"Downloading… %.0f%%", progress * 100.0] delegate: nil cancelButtonTitle: nil otherButtonTitles: nil];
+				[alert show];
+			});
+		};
+		
+		[query fetchWithCompletion:^(NSError *error) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[alert dismissWithClickedButtonIndex: 0 animated: YES];
+			});
+		}];
+	}
+	
 }
 
 - (NSFetchRequest *) fetchRequest {
@@ -143,7 +157,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"ident"];
 	}
 	
-	cell.textLabel.text = object[self.sortKey];
+	cell.textLabel.text = object.mainTableText;
 	cell.tag = indexPath.hash;
 	
 	[object fetchThumbnailWithCompletion:^(UIImage *image, NSError *error) {

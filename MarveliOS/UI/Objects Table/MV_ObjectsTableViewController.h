@@ -13,4 +13,6 @@
 
 + (instancetype) controllerForObjectType: (MV_Object_type) type;
 
+@property (nonatomic) MV_Object_type objectType;
+
 @end

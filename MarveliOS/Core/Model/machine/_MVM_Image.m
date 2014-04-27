@@ -12,6 +12,7 @@ const struct MVM_ImageRelationships MVM_ImageRelationships = {
 	.character = @"character",
 	.comic = @"comic",
 	.comicImage = @"comicImage",
+	.creator = @"creator",
 	.event = @"event",
 	.series = @"series",
 	.story = @"story",
@@ -76,6 +77,10 @@ const struct MVM_ImageFetchedProperties MVM_ImageFetchedProperties = {
 	
 
 @dynamic comicImage;
+
+	
+
+@dynamic creator;
 
 	
 
