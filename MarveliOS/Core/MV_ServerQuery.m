@@ -13,7 +13,7 @@
 @interface MV_ServerQuery ()
 @property (nonatomic, strong) NSString *fragment;
 @property (nonatomic, strong) NSDictionary *parameters;
-@property (nonatomic, strong) NSMutableArray *collectedResults;
+@property (nonatomic, strong) NSMutableArray *collectedResults, *collectedIDs;
 @property (nonatomic, strong) NSArray *results;
 @property (nonatomic, strong) NSString *attributionText, *attributionHTML, *copyright, *etag;
 @property (nonatomic, readwrite) unsigned long count, total, offset;
@@ -39,7 +39,10 @@
 }
 
 - (MV_ServerQuery *) fetchWithCompletion: (mv_queryCompletedBlock) completion {
-	self.collectedResults = [NSMutableArray array];
+	if (self.cacheResults)
+		self.collectedIDs = [NSMutableArray array];
+	else
+		self.collectedResults = [NSMutableArray array];
 	self.completion = completion;
 	
 	[self continueFetch];
@@ -58,12 +61,13 @@
 			
 			NSArray				*chunkResults = results[@"data"][@"results"];
 			
-			[self.collectedResults addObjectsFromArray: chunkResults];
-			self.count = self.results.count;
+			if (!self.cacheResults) [self.collectedResults addObjectsFromArray: chunkResults];
+			self.count += chunkResults.count;
 			
 			if (self.cacheResults && self.objectServerType != MV_Object_type_none)
 				[[MV_Store store] importServerObjects: chunkResults ofType: self.objectServerType toDepth: self.relatedObjectDepth withCompletion: ^(NSArray *importedIDs) {
-					if (self.progressBlock) self.progressBlock( ((float) self.count) / ((float) (self.fetchAll ? self.total : self.numberToFetch)) );
+					if (self.progressBlock) self.progressBlock( ((float) self.collectedIDs.count) / ((float) (self.fetchAll ? self.total : self.numberToFetch)) );
+					[self.collectedIDs addObjectsFromArray: importedIDs];
 				}];
 			
 			if (self.count < self.numberToFetch && self.count < self.total) {
@@ -81,7 +85,8 @@
 	}];
 }
 
-- (NSArray *) results { return self.collectedResults; }
+- (NSArray *) resultDictionaries { return self.collectedResults; }
+- (NSArray *) resultIDs { return self.collectedIDs; }
 
 - (NSURL *) URL {
 	NSMutableDictionary		*params = self.parameters ? self.parameters.mutableCopy : [NSMutableDictionary dictionary];

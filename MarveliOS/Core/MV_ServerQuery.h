@@ -23,7 +23,8 @@
 @property (nonatomic) NSUInteger relatedObjectDepth;			//how deeply should we follow links to download related objects. Defaults to 1, just download the objects, no related downloads
 																//NOTE: You can VERY quickly bust your API limit using values greater than 1 here.
 
-@property (nonatomic, readonly) NSArray *results;
+@property (nonatomic, readonly) NSArray *resultDictionaries;	//if cacheResults is set to false, this will contain an array of NSDictionaries with the query results
+@property (nonatomic, readonly) NSArray *resultIDs;				//otherwise (cacheResults == true), this will have the objectIDs of all retrieved records (whether new or not)
 @property (nonatomic, readonly) NSString *attributionText, *attributionHTML, *copyright;
 @property (nonatomic, readonly) unsigned long count, total;
 @property (nonatomic) BOOL cacheResults;
