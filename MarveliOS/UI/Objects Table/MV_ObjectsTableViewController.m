@@ -9,7 +9,7 @@
 #import "MV_ObjectsTableViewController.h"
 #import "MV_Store.h"
 #import "MVM_Object.h"
-#import "MV_ServerQuery+FrequentQueries.h"
+#import "MV_ServerQuery.h"
 #import "NSManagedObjectContext+MV_.h"
 
 #import <CoreData/CoreData.h>

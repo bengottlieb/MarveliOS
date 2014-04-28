@@ -15,6 +15,9 @@
 
 + (instancetype) queryWithFragment: (NSString *) fragment andParameters: (NSDictionary *) params;
 
++ (MV_ServerQuery *) queryForObjectsOfType: (MV_Object_type) type withSearchText: (NSString *) text;
++ (MV_ServerQuery *) queryForAllObjectsOfType: (MV_Object_type) type;
+
 @property (nonatomic, copy) mv_progressBlock progressBlock;
 @property (nonatomic) long numberToFetch;
 @property (nonatomic) NSUInteger relatedObjectDepth;			//how deeply should we follow links to download related objects. Defaults to 1, just download the objects, no related downloads

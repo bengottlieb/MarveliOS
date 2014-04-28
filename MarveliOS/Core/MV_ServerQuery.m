@@ -94,6 +94,37 @@
 
 - (BOOL) fetchAll { return self.numberToFetch == MV_QUERY_FETCH_ALL; }
 
+//=============================================================================================================================
+#pragma mark Query factories
++ (MV_ServerQuery *) queryForObjectsOfType: (MV_Object_type) type withSearchText: (NSString *) text {
+	NSString				*fragment = nil;
+	NSDictionary			*params = nil;
+	
+	text = [text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	
+	switch (type) {
+		case MV_Object_type_character: fragment = @"characters"; if (text.length) params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_creator: fragment = @"creators"; if (text.length) params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_event: fragment = @"events"; if (text.length) params = @{ @"nameStartsWith": text }; break;
+		case MV_Object_type_series: fragment = @"series"; if (text.length) params = @{ @"titleStartsWith": text }; break;
+		case MV_Object_type_story: fragment = @"stories"; break;
+		case MV_Object_type_comic: fragment = @"comics"; break;
+		default:
+			return nil;
+	}
+	
+	MV_ServerQuery		*query = [self queryWithFragment: fragment andParameters: params];
+	
+	query.objectServerType = type;
+	return query;
+}
+
++ (MV_ServerQuery *) queryForAllObjectsOfType: (MV_Object_type) type {
+	MV_ServerQuery		*query = [self queryForObjectsOfType: type withSearchText: nil];
+	
+	query.numberToFetch = MV_QUERY_FETCH_ALL;
+	return query;
+}
 
 @end
 
