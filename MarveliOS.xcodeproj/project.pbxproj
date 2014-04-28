@@ -47,8 +47,8 @@
 		B596E9D7190BBDB5006619D6 /* MarveliOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9D6190BBDB5006619D6 /* MarveliOSTests.m */; };
 		B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */; };
 		B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E5190BDA5D006619D6 /* MV_Utilities.m */; };
+		B596E9E9190E5AB2006619D6 /* MV_ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B596E9E8190E5AB2006619D6 /* MV_ImageCache.m */; };
 		B5A8C280190BF19A009EAA89 /* MV_ServerQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C27F190BF19A009EAA89 /* MV_ServerQuery.m */; };
-		B5A8C284190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8C283190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,11 +132,11 @@
 		B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_DownloadManager.m; path = MarveliOS/Core/MV_DownloadManager.m; sourceTree = "<group>"; };
 		B596E9E4190BBEED006619D6 /* MV_Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_Utilities.h; path = MarveliOS/Core/MV_Utilities.h; sourceTree = "<group>"; };
 		B596E9E5190BDA5D006619D6 /* MV_Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_Utilities.m; path = MarveliOS/Core/MV_Utilities.m; sourceTree = "<group>"; };
+		B596E9E7190E5AB2006619D6 /* MV_ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_ImageCache.h; path = MarveliOS/Core/MV_ImageCache.h; sourceTree = "<group>"; };
+		B596E9E8190E5AB2006619D6 /* MV_ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_ImageCache.m; path = MarveliOS/Core/MV_ImageCache.m; sourceTree = "<group>"; };
 		B5A8C27E190BF19A009EAA89 /* MV_ServerQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_ServerQuery.h; path = MarveliOS/Core/MV_ServerQuery.h; sourceTree = "<group>"; };
 		B5A8C27F190BF19A009EAA89 /* MV_ServerQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MV_ServerQuery.m; path = MarveliOS/Core/MV_ServerQuery.m; sourceTree = "<group>"; };
 		B5A8C281190BF1FB009EAA89 /* MV_MarveliOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MV_MarveliOS.h; path = MarveliOS/Core/MV_MarveliOS.h; sourceTree = "<group>"; };
-		B5A8C282190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MV_ServerQuery+FrequentQueries.h"; path = "MarveliOS/Core/MV_ServerQuery+FrequentQueries.h"; sourceTree = "<group>"; };
-		B5A8C283190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MV_ServerQuery+FrequentQueries.m"; path = "MarveliOS/Core/MV_ServerQuery+FrequentQueries.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,13 +326,21 @@
 				B596E9E1190BBE07006619D6 /* MV_DownloadManager.m */,
 				B5A8C27E190BF19A009EAA89 /* MV_ServerQuery.h */,
 				B5A8C27F190BF19A009EAA89 /* MV_ServerQuery.m */,
-				B5A8C282190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.h */,
-				B5A8C283190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.m */,
-				B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */,
-				B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */,
+				B596E9E7190E5AB2006619D6 /* MV_ImageCache.h */,
+				B596E9E8190E5AB2006619D6 /* MV_ImageCache.m */,
+				B596E9EA190E5AC0006619D6 /* Categories */,
 				B548C220190C7FD700E2427A /* Model */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		B596E9EA190E5AC0006619D6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */,
+				B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,8 +440,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B548C266190C805800E2427A /* MV_Store.m in Sources */,
-				B5A8C284190C14EB009EAA89 /* MV_ServerQuery+FrequentQueries.m in Sources */,
 				B5A8C280190BF19A009EAA89 /* MV_ServerQuery.m in Sources */,
+				B596E9E9190E5AB2006619D6 /* MV_ImageCache.m in Sources */,
 				B548C24F190C7FD700E2427A /* _MVM_Comic.m in Sources */,
 				B548C25C190C7FD700E2427A /* MVM_ComicText.m in Sources */,
 				B548C25B190C7FD700E2427A /* MVM_ComicPrice.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "MV_DownloadManager.h"
 #import "MV_ServerQuery.h"
+#import "MV_ImageCache.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @interface MV_DownloadManager () <NSURLSessionDelegate, NSURLSessionDataDelegate>
@@ -39,17 +40,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 									 @"landscape_small", @"landscape_medium", @"landscape_large", @"landscape_xlarge", @"landscape_amazing", @"landscape_incredible" ];
 	
 	path = [path stringByAppendingPathComponent: [NSString stringWithFormat: @"%@.%@", imageSizes[size], ext]];
-	[self downloadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: path]] withCompletion: ^(NSData *data, NSError *error) {
-		if (error) {
-			completion(nil, error);
-		} else {
-			UIImage				*image = [UIImage imageWithData: data];
-			
-			completion(image, nil);
-		}
-	}];
 	
+	NSURL			*url = [NSURL URLWithString: path];
 	
+	[[MV_ImageCache defaultCache] fetchImageAtURL: url withCompletion: completion];
 }
 
 - (void) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion {
