@@ -7,7 +7,6 @@
 //
 
 #import "MV_AppDelegate.h"
-#import "MV_ServerQuery+FrequentQueries.h"
 #import "MV_DownloadManager.h"
 #import "MV_ObjectsTableViewController.h"
 
