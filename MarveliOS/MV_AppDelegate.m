@@ -25,6 +25,7 @@
 
     
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.tintColor = [UIColor colorWithRed: 0.99 green: 0.19 blue: 0.28 alpha: 1.0];
 	
 	self.objectsTableController = [MV_ObjectsTableViewController controllerForObjectType: MV_Object_type_character];
 	
