@@ -44,6 +44,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 	
 	if (image) {
 		completion(image, nil);
+		[self.cache setObject: image forKey: key];
 		return nil;
 	}
 	
