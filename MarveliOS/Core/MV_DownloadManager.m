@@ -134,12 +134,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 
 - (NSURL *) paramaterizeURL: (NSURL *) url withParameters: (NSDictionary *) parameters {
 	if (self.privateAPIKey.length == 0 || self.publicAPIKey.length == 0) {
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[UIAlertView showAlertWithTitle: @"Missing API Keys" message: @"Please set the publicAPIKey and privateAPIKey property on [MV_DownloadManager defaultManager]."];
-		});
+		[UIAlertView showAlertWithTitle: @"Missing API Keys" message: @"Please set the publicAPIKey and privateAPIKey properties on [MV_DownloadManager defaultManager]."];
 		return nil;
 	}
-
+	
 	NSMutableDictionary		*fullQuery = parameters ? parameters.mutableCopy : [NSMutableDictionary dictionary];
 	NSURLComponents			*components = [NSURLComponents componentsWithURL: url resolvingAgainstBaseURL: NO];
 	

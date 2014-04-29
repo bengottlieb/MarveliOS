@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 #warning Be sure to set your Public and Private API keys. Go to https://developer.marvel.com/pleasesignin to get a key
-	[MV_DownloadManager defaultManager].publicAPIKey = @"PUBLIC_API_KEY";
-	[MV_DownloadManager defaultManager].privateAPIKey = @"PRIVATE_API_KEY";
+	[MV_DownloadManager defaultManager].publicAPIKey = @"";			//PUBLIC_API_KEY
+	[MV_DownloadManager defaultManager].privateAPIKey = @"";		//PRIVATE_API_KEY
 
     
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
