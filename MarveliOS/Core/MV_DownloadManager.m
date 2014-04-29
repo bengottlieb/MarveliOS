@@ -84,6 +84,9 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	
 	[defaults setObject: @(apiUseCount) forKey: API_USE_KEY_DEFAULTS_KEY];
 	[defaults synchronize];
+	
+	_apiUseCount = apiUseCount;
+	if (apiUseCount % 25 == 0) NSLog(@"Current API Use Count: %d", (UInt16) apiUseCount);
 }
 
 

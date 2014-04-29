@@ -64,6 +64,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 		if ([desc isKindOfClass: [NSAttributeDescription class]]) {
 			switch (desc.attributeType) {
 				case NSDateAttributeType:
+					self[field] = [self dateFromString: value];
 					break;
 					
 				case NSStringAttributeType:
@@ -209,19 +210,13 @@ static NSMutableSet			*s_pendingUpdates = nil;
 }
 
 - (void) importDates: (NSDictionary *) datesInfo toDepth: (NSNumber *) depth {
-	static NSDateFormatter		*formatter = nil;
-
-	if (formatter == nil) {
-		formatter = [NSDateFormatter new];
-		[formatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ssz"];
-	}
 	
 	NSMutableSet				*existingDatesObjects = [self mutableSetValueForKey: @"dates"];
 	NSSet						*existingDates = [existingDatesObjects valueForKey: @"date"];
 	NSMutableArray				*incomingDates = [NSMutableArray array];
 	
 	for (NSDictionary *dateInfo in datesInfo) {
-		NSDate			*date = [formatter dateFromString: dateInfo[@"date"]];
+		NSDate			*date = [self dateFromString: dateInfo[@"date"]];
 		
 		if (date) [incomingDates addObject: date];
 	}
@@ -235,7 +230,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 	
 	for (NSDictionary *info in datesInfo) {
 		if (![existingDates containsObject: info[@"date"]]) {
-			NSDate					*date = [formatter dateFromString: info[@"date"]];
+			NSDate					*date = [self dateFromString: info[@"date"]];
 			if (date == nil) continue;
 			
 			MVM_ComicDate			*dateObject = [self.managedObjectContext mv_insertNewEntityWithName: [MVM_ComicDate entityName]];
@@ -287,6 +282,20 @@ static NSMutableSet			*s_pendingUpdates = nil;
 
 - (id) objectForKeyedSubscript: (id) key { return [self valueForKey: key]; }
 - (void) setObject: (id) obj forKeyedSubscript: (id) key { [self setValue: obj forKey: key]; }
+
+- (NSDate *) dateFromString: (NSString *) string {
+	if (string == nil) return nil;
+	
+	static NSDateFormatter		*formatter = nil;
+	
+	if (formatter == nil) {
+		formatter = [NSDateFormatter new];
+		[formatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ssz"];
+	}
+	
+	return [formatter dateFromString: string];
+}
+
 @end
 
 
