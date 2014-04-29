@@ -107,7 +107,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	
 	self.activityIndicatorCount++;
 	
-	if (request.URL && [request.URL.query rangeOfString: @"apikey="].location != NSNotFound) self.apiUseCount++;
+	if (request.URL.query && [request.URL.query rangeOfString: @"apikey="].location != NSNotFound) self.apiUseCount++;
 	
 	NSURLSessionDataTask	*task = [self.session dataTaskWithRequest: request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSUInteger			statusCode = [(NSHTTPURLResponse *) response statusCode];
