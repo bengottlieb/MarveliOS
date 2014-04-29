@@ -7,32 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B548C24E190C7FD700E2427A /* _MVM_Character.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C223190C7FD700E2427A /* _MVM_Character.m */; };
-		B548C24F190C7FD700E2427A /* _MVM_Comic.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C225190C7FD700E2427A /* _MVM_Comic.m */; };
-		B548C250190C7FD700E2427A /* _MVM_ComicPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C227190C7FD700E2427A /* _MVM_ComicPrice.m */; };
-		B548C251190C7FD700E2427A /* _MVM_ComicText.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C229190C7FD700E2427A /* _MVM_ComicText.m */; };
-		B548C252190C7FD700E2427A /* _MVM_Creator.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C22B190C7FD700E2427A /* _MVM_Creator.m */; };
-		B548C253190C7FD700E2427A /* _MVM_Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C22D190C7FD700E2427A /* _MVM_Event.m */; };
-		B548C254190C7FD700E2427A /* _MVM_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C22F190C7FD700E2427A /* _MVM_Image.m */; };
-		B548C255190C7FD700E2427A /* _MVM_Series.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C231190C7FD700E2427A /* _MVM_Series.m */; };
-		B548C256190C7FD700E2427A /* _MVM_Story.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C233190C7FD700E2427A /* _MVM_Story.m */; };
-		B548C257190C7FD700E2427A /* _MVM_URL.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C235190C7FD700E2427A /* _MVM_URL.m */; };
-		B548C258190C7FD700E2427A /* MarveliOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B548C236190C7FD700E2427A /* MarveliOS.xcdatamodeld */; };
-		B548C259190C7FD700E2427A /* MVM_Character.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C239190C7FD700E2427A /* MVM_Character.m */; };
-		B548C25A190C7FD700E2427A /* MVM_Comic.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C23B190C7FD700E2427A /* MVM_Comic.m */; };
-		B548C25B190C7FD700E2427A /* MVM_ComicPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C23D190C7FD700E2427A /* MVM_ComicPrice.m */; };
-		B548C25C190C7FD700E2427A /* MVM_ComicText.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C23F190C7FD700E2427A /* MVM_ComicText.m */; };
-		B548C25D190C7FD700E2427A /* MVM_Creator.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C241190C7FD700E2427A /* MVM_Creator.m */; };
-		B548C25E190C7FD700E2427A /* MVM_Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C243190C7FD700E2427A /* MVM_Event.m */; };
-		B548C25F190C7FD700E2427A /* MVM_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C245190C7FD700E2427A /* MVM_Image.m */; };
-		B548C260190C7FD700E2427A /* MVM_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C247190C7FD700E2427A /* MVM_Object.m */; };
-		B548C261190C7FD700E2427A /* MVM_Series.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C249190C7FD700E2427A /* MVM_Series.m */; };
-		B548C262190C7FD700E2427A /* MVM_Story.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C24B190C7FD700E2427A /* MVM_Story.m */; };
-		B548C263190C7FD700E2427A /* MVM_URL.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C24D190C7FD700E2427A /* MVM_URL.m */; };
-		B548C266190C805800E2427A /* MV_Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C265190C805800E2427A /* MV_Store.m */; };
 		B548C268190C834300E2427A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B548C267190C834300E2427A /* CoreData.framework */; };
 		B548C26B190C8BA600E2427A /* NSManagedObjectContext+MV_.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */; };
 		B548C278190D4A0600E2427A /* MV_ObjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */; };
+		B548C2FE190EC45500E2427A /* _MVM_Character.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2CD190EC45500E2427A /* _MVM_Character.m */; };
+		B548C2FF190EC45500E2427A /* _MVM_Comic.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2CF190EC45500E2427A /* _MVM_Comic.m */; };
+		B548C300190EC45500E2427A /* _MVM_ComicDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2D1190EC45500E2427A /* _MVM_ComicDate.m */; };
+		B548C301190EC45500E2427A /* _MVM_ComicPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2D3190EC45500E2427A /* _MVM_ComicPrice.m */; };
+		B548C302190EC45500E2427A /* _MVM_ComicText.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2D5190EC45500E2427A /* _MVM_ComicText.m */; };
+		B548C303190EC45500E2427A /* _MVM_Creator.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2D7190EC45500E2427A /* _MVM_Creator.m */; };
+		B548C304190EC45500E2427A /* _MVM_Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2D9190EC45500E2427A /* _MVM_Event.m */; };
+		B548C305190EC45500E2427A /* _MVM_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2DB190EC45500E2427A /* _MVM_Image.m */; };
+		B548C306190EC45500E2427A /* _MVM_Series.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2DD190EC45500E2427A /* _MVM_Series.m */; };
+		B548C307190EC45500E2427A /* _MVM_Story.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2DF190EC45500E2427A /* _MVM_Story.m */; };
+		B548C308190EC45500E2427A /* _MVM_URL.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2E1190EC45500E2427A /* _MVM_URL.m */; };
+		B548C309190EC45500E2427A /* MarveliOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B548C2E2190EC45500E2427A /* MarveliOS.xcdatamodeld */; };
+		B548C30A190EC45500E2427A /* MV_Store.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2E5190EC45500E2427A /* MV_Store.m */; };
+		B548C30B190EC45500E2427A /* MVM_Character.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2E7190EC45500E2427A /* MVM_Character.m */; };
+		B548C30C190EC45500E2427A /* MVM_Comic.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2E9190EC45500E2427A /* MVM_Comic.m */; };
+		B548C30D190EC45500E2427A /* MVM_ComicDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2EB190EC45500E2427A /* MVM_ComicDate.m */; };
+		B548C30E190EC45500E2427A /* MVM_ComicPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2ED190EC45500E2427A /* MVM_ComicPrice.m */; };
+		B548C30F190EC45500E2427A /* MVM_ComicText.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2EF190EC45500E2427A /* MVM_ComicText.m */; };
+		B548C310190EC45500E2427A /* MVM_Creator.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2F1190EC45500E2427A /* MVM_Creator.m */; };
+		B548C311190EC45500E2427A /* MVM_Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2F3190EC45500E2427A /* MVM_Event.m */; };
+		B548C312190EC45500E2427A /* MVM_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2F5190EC45500E2427A /* MVM_Image.m */; };
+		B548C313190EC45500E2427A /* MVM_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2F7190EC45500E2427A /* MVM_Object.m */; };
+		B548C314190EC45500E2427A /* MVM_Series.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2F9190EC45500E2427A /* MVM_Series.m */; };
+		B548C315190EC45500E2427A /* MVM_Story.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2FB190EC45500E2427A /* MVM_Story.m */; };
+		B548C316190EC45500E2427A /* MVM_URL.m in Sources */ = {isa = PBXBuildFile; fileRef = B548C2FD190EC45500E2427A /* MVM_URL.m */; };
 		B596E9B2190BBDB5006619D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B1190BBDB5006619D6 /* Foundation.framework */; };
 		B596E9B4190BBDB5006619D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */; };
 		B596E9B6190BBDB5006619D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596E9B5190BBDB5006619D6 /* UIKit.framework */; };
@@ -62,56 +64,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B548C222190C7FD700E2427A /* _MVM_Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Character.h; sourceTree = "<group>"; };
-		B548C223190C7FD700E2427A /* _MVM_Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Character.m; sourceTree = "<group>"; };
-		B548C224190C7FD700E2427A /* _MVM_Comic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Comic.h; sourceTree = "<group>"; };
-		B548C225190C7FD700E2427A /* _MVM_Comic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Comic.m; sourceTree = "<group>"; };
-		B548C226190C7FD700E2427A /* _MVM_ComicPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_ComicPrice.h; sourceTree = "<group>"; };
-		B548C227190C7FD700E2427A /* _MVM_ComicPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_ComicPrice.m; sourceTree = "<group>"; };
-		B548C228190C7FD700E2427A /* _MVM_ComicText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_ComicText.h; sourceTree = "<group>"; };
-		B548C229190C7FD700E2427A /* _MVM_ComicText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_ComicText.m; sourceTree = "<group>"; };
-		B548C22A190C7FD700E2427A /* _MVM_Creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Creator.h; sourceTree = "<group>"; };
-		B548C22B190C7FD700E2427A /* _MVM_Creator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Creator.m; sourceTree = "<group>"; };
-		B548C22C190C7FD700E2427A /* _MVM_Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Event.h; sourceTree = "<group>"; };
-		B548C22D190C7FD700E2427A /* _MVM_Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Event.m; sourceTree = "<group>"; };
-		B548C22E190C7FD700E2427A /* _MVM_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Image.h; sourceTree = "<group>"; };
-		B548C22F190C7FD700E2427A /* _MVM_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Image.m; sourceTree = "<group>"; };
-		B548C230190C7FD700E2427A /* _MVM_Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Series.h; sourceTree = "<group>"; };
-		B548C231190C7FD700E2427A /* _MVM_Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Series.m; sourceTree = "<group>"; };
-		B548C232190C7FD700E2427A /* _MVM_Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Story.h; sourceTree = "<group>"; };
-		B548C233190C7FD700E2427A /* _MVM_Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Story.m; sourceTree = "<group>"; };
-		B548C234190C7FD700E2427A /* _MVM_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_URL.h; sourceTree = "<group>"; };
-		B548C235190C7FD700E2427A /* _MVM_URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_URL.m; sourceTree = "<group>"; };
-		B548C237190C7FD700E2427A /* MarveliOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarveliOS.xcdatamodel; sourceTree = "<group>"; };
-		B548C238190C7FD700E2427A /* MVM_Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Character.h; sourceTree = "<group>"; };
-		B548C239190C7FD700E2427A /* MVM_Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Character.m; sourceTree = "<group>"; };
-		B548C23A190C7FD700E2427A /* MVM_Comic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Comic.h; sourceTree = "<group>"; };
-		B548C23B190C7FD700E2427A /* MVM_Comic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Comic.m; sourceTree = "<group>"; };
-		B548C23C190C7FD700E2427A /* MVM_ComicPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_ComicPrice.h; sourceTree = "<group>"; };
-		B548C23D190C7FD700E2427A /* MVM_ComicPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_ComicPrice.m; sourceTree = "<group>"; };
-		B548C23E190C7FD700E2427A /* MVM_ComicText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_ComicText.h; sourceTree = "<group>"; };
-		B548C23F190C7FD700E2427A /* MVM_ComicText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_ComicText.m; sourceTree = "<group>"; };
-		B548C240190C7FD700E2427A /* MVM_Creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Creator.h; sourceTree = "<group>"; };
-		B548C241190C7FD700E2427A /* MVM_Creator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Creator.m; sourceTree = "<group>"; };
-		B548C242190C7FD700E2427A /* MVM_Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Event.h; sourceTree = "<group>"; };
-		B548C243190C7FD700E2427A /* MVM_Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Event.m; sourceTree = "<group>"; };
-		B548C244190C7FD700E2427A /* MVM_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Image.h; sourceTree = "<group>"; };
-		B548C245190C7FD700E2427A /* MVM_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Image.m; sourceTree = "<group>"; };
-		B548C246190C7FD700E2427A /* MVM_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Object.h; sourceTree = "<group>"; };
-		B548C247190C7FD700E2427A /* MVM_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Object.m; sourceTree = "<group>"; };
-		B548C248190C7FD700E2427A /* MVM_Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Series.h; sourceTree = "<group>"; };
-		B548C249190C7FD700E2427A /* MVM_Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Series.m; sourceTree = "<group>"; };
-		B548C24A190C7FD700E2427A /* MVM_Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Story.h; sourceTree = "<group>"; };
-		B548C24B190C7FD700E2427A /* MVM_Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Story.m; sourceTree = "<group>"; };
-		B548C24C190C7FD700E2427A /* MVM_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_URL.h; sourceTree = "<group>"; };
-		B548C24D190C7FD700E2427A /* MVM_URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_URL.m; sourceTree = "<group>"; };
-		B548C264190C805800E2427A /* MV_Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MV_Store.h; sourceTree = "<group>"; };
-		B548C265190C805800E2427A /* MV_Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MV_Store.m; sourceTree = "<group>"; };
 		B548C267190C834300E2427A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B548C269190C8BA600E2427A /* NSManagedObjectContext+MV_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+MV_.h"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.h"; sourceTree = "<group>"; };
 		B548C26A190C8BA600E2427A /* NSManagedObjectContext+MV_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+MV_.m"; path = "MarveliOS/Core/Categories/NSManagedObjectContext+MV_.m"; sourceTree = "<group>"; };
 		B548C276190D4A0600E2427A /* MV_ObjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MV_ObjectsTableViewController.h; sourceTree = "<group>"; };
 		B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MV_ObjectsTableViewController.m; sourceTree = "<group>"; };
+		B548C2CC190EC45500E2427A /* _MVM_Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Character.h; sourceTree = "<group>"; };
+		B548C2CD190EC45500E2427A /* _MVM_Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Character.m; sourceTree = "<group>"; };
+		B548C2CE190EC45500E2427A /* _MVM_Comic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Comic.h; sourceTree = "<group>"; };
+		B548C2CF190EC45500E2427A /* _MVM_Comic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Comic.m; sourceTree = "<group>"; };
+		B548C2D0190EC45500E2427A /* _MVM_ComicDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_ComicDate.h; sourceTree = "<group>"; };
+		B548C2D1190EC45500E2427A /* _MVM_ComicDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_ComicDate.m; sourceTree = "<group>"; };
+		B548C2D2190EC45500E2427A /* _MVM_ComicPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_ComicPrice.h; sourceTree = "<group>"; };
+		B548C2D3190EC45500E2427A /* _MVM_ComicPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_ComicPrice.m; sourceTree = "<group>"; };
+		B548C2D4190EC45500E2427A /* _MVM_ComicText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_ComicText.h; sourceTree = "<group>"; };
+		B548C2D5190EC45500E2427A /* _MVM_ComicText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_ComicText.m; sourceTree = "<group>"; };
+		B548C2D6190EC45500E2427A /* _MVM_Creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Creator.h; sourceTree = "<group>"; };
+		B548C2D7190EC45500E2427A /* _MVM_Creator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Creator.m; sourceTree = "<group>"; };
+		B548C2D8190EC45500E2427A /* _MVM_Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Event.h; sourceTree = "<group>"; };
+		B548C2D9190EC45500E2427A /* _MVM_Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Event.m; sourceTree = "<group>"; };
+		B548C2DA190EC45500E2427A /* _MVM_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Image.h; sourceTree = "<group>"; };
+		B548C2DB190EC45500E2427A /* _MVM_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Image.m; sourceTree = "<group>"; };
+		B548C2DC190EC45500E2427A /* _MVM_Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Series.h; sourceTree = "<group>"; };
+		B548C2DD190EC45500E2427A /* _MVM_Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Series.m; sourceTree = "<group>"; };
+		B548C2DE190EC45500E2427A /* _MVM_Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_Story.h; sourceTree = "<group>"; };
+		B548C2DF190EC45500E2427A /* _MVM_Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_Story.m; sourceTree = "<group>"; };
+		B548C2E0190EC45500E2427A /* _MVM_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MVM_URL.h; sourceTree = "<group>"; };
+		B548C2E1190EC45500E2427A /* _MVM_URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MVM_URL.m; sourceTree = "<group>"; };
+		B548C2E3190EC45500E2427A /* MarveliOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarveliOS.xcdatamodel; sourceTree = "<group>"; };
+		B548C2E4190EC45500E2427A /* MV_Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MV_Store.h; sourceTree = "<group>"; };
+		B548C2E5190EC45500E2427A /* MV_Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MV_Store.m; sourceTree = "<group>"; };
+		B548C2E6190EC45500E2427A /* MVM_Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Character.h; sourceTree = "<group>"; };
+		B548C2E7190EC45500E2427A /* MVM_Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Character.m; sourceTree = "<group>"; };
+		B548C2E8190EC45500E2427A /* MVM_Comic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Comic.h; sourceTree = "<group>"; };
+		B548C2E9190EC45500E2427A /* MVM_Comic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Comic.m; sourceTree = "<group>"; };
+		B548C2EA190EC45500E2427A /* MVM_ComicDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_ComicDate.h; sourceTree = "<group>"; };
+		B548C2EB190EC45500E2427A /* MVM_ComicDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_ComicDate.m; sourceTree = "<group>"; };
+		B548C2EC190EC45500E2427A /* MVM_ComicPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_ComicPrice.h; sourceTree = "<group>"; };
+		B548C2ED190EC45500E2427A /* MVM_ComicPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_ComicPrice.m; sourceTree = "<group>"; };
+		B548C2EE190EC45500E2427A /* MVM_ComicText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_ComicText.h; sourceTree = "<group>"; };
+		B548C2EF190EC45500E2427A /* MVM_ComicText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_ComicText.m; sourceTree = "<group>"; };
+		B548C2F0190EC45500E2427A /* MVM_Creator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Creator.h; sourceTree = "<group>"; };
+		B548C2F1190EC45500E2427A /* MVM_Creator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Creator.m; sourceTree = "<group>"; };
+		B548C2F2190EC45500E2427A /* MVM_Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Event.h; sourceTree = "<group>"; };
+		B548C2F3190EC45500E2427A /* MVM_Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Event.m; sourceTree = "<group>"; };
+		B548C2F4190EC45500E2427A /* MVM_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Image.h; sourceTree = "<group>"; };
+		B548C2F5190EC45500E2427A /* MVM_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Image.m; sourceTree = "<group>"; };
+		B548C2F6190EC45500E2427A /* MVM_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Object.h; sourceTree = "<group>"; };
+		B548C2F7190EC45500E2427A /* MVM_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Object.m; sourceTree = "<group>"; };
+		B548C2F8190EC45500E2427A /* MVM_Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Series.h; sourceTree = "<group>"; };
+		B548C2F9190EC45500E2427A /* MVM_Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Series.m; sourceTree = "<group>"; };
+		B548C2FA190EC45500E2427A /* MVM_Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_Story.h; sourceTree = "<group>"; };
+		B548C2FB190EC45500E2427A /* MVM_Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_Story.m; sourceTree = "<group>"; };
+		B548C2FC190EC45500E2427A /* MVM_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVM_URL.h; sourceTree = "<group>"; };
+		B548C2FD190EC45500E2427A /* MVM_URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVM_URL.m; sourceTree = "<group>"; };
 		B596E9AE190BBDB5006619D6 /* MarveliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarveliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B596E9B1190BBDB5006619D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B596E9B3190BBDB5006619D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,67 +170,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B548C220190C7FD700E2427A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B548C221190C7FD700E2427A /* machine */,
-				B548C236190C7FD700E2427A /* MarveliOS.xcdatamodeld */,
-				B548C264190C805800E2427A /* MV_Store.h */,
-				B548C265190C805800E2427A /* MV_Store.m */,
-				B548C246190C7FD700E2427A /* MVM_Object.h */,
-				B548C247190C7FD700E2427A /* MVM_Object.m */,
-				B548C238190C7FD700E2427A /* MVM_Character.h */,
-				B548C239190C7FD700E2427A /* MVM_Character.m */,
-				B548C23A190C7FD700E2427A /* MVM_Comic.h */,
-				B548C23B190C7FD700E2427A /* MVM_Comic.m */,
-				B548C23C190C7FD700E2427A /* MVM_ComicPrice.h */,
-				B548C23D190C7FD700E2427A /* MVM_ComicPrice.m */,
-				B548C23E190C7FD700E2427A /* MVM_ComicText.h */,
-				B548C23F190C7FD700E2427A /* MVM_ComicText.m */,
-				B548C240190C7FD700E2427A /* MVM_Creator.h */,
-				B548C241190C7FD700E2427A /* MVM_Creator.m */,
-				B548C242190C7FD700E2427A /* MVM_Event.h */,
-				B548C243190C7FD700E2427A /* MVM_Event.m */,
-				B548C244190C7FD700E2427A /* MVM_Image.h */,
-				B548C245190C7FD700E2427A /* MVM_Image.m */,
-				B548C248190C7FD700E2427A /* MVM_Series.h */,
-				B548C249190C7FD700E2427A /* MVM_Series.m */,
-				B548C24A190C7FD700E2427A /* MVM_Story.h */,
-				B548C24B190C7FD700E2427A /* MVM_Story.m */,
-				B548C24C190C7FD700E2427A /* MVM_URL.h */,
-				B548C24D190C7FD700E2427A /* MVM_URL.m */,
-			);
-			name = Model;
-			path = MarveliOS/Core/Model;
-			sourceTree = "<group>";
-		};
-		B548C221190C7FD700E2427A /* machine */ = {
-			isa = PBXGroup;
-			children = (
-				B548C222190C7FD700E2427A /* _MVM_Character.h */,
-				B548C223190C7FD700E2427A /* _MVM_Character.m */,
-				B548C224190C7FD700E2427A /* _MVM_Comic.h */,
-				B548C225190C7FD700E2427A /* _MVM_Comic.m */,
-				B548C226190C7FD700E2427A /* _MVM_ComicPrice.h */,
-				B548C227190C7FD700E2427A /* _MVM_ComicPrice.m */,
-				B548C228190C7FD700E2427A /* _MVM_ComicText.h */,
-				B548C229190C7FD700E2427A /* _MVM_ComicText.m */,
-				B548C22A190C7FD700E2427A /* _MVM_Creator.h */,
-				B548C22B190C7FD700E2427A /* _MVM_Creator.m */,
-				B548C22C190C7FD700E2427A /* _MVM_Event.h */,
-				B548C22D190C7FD700E2427A /* _MVM_Event.m */,
-				B548C22E190C7FD700E2427A /* _MVM_Image.h */,
-				B548C22F190C7FD700E2427A /* _MVM_Image.m */,
-				B548C230190C7FD700E2427A /* _MVM_Series.h */,
-				B548C231190C7FD700E2427A /* _MVM_Series.m */,
-				B548C232190C7FD700E2427A /* _MVM_Story.h */,
-				B548C233190C7FD700E2427A /* _MVM_Story.m */,
-				B548C234190C7FD700E2427A /* _MVM_URL.h */,
-				B548C235190C7FD700E2427A /* _MVM_URL.m */,
-			);
-			path = machine;
-			sourceTree = "<group>";
-		};
 		B548C274190D4A0600E2427A /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +186,71 @@
 				B548C277190D4A0600E2427A /* MV_ObjectsTableViewController.m */,
 			);
 			path = "Objects Table";
+			sourceTree = "<group>";
+		};
+		B548C2CA190EC45500E2427A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B548C2CB190EC45500E2427A /* machine */,
+				B548C2E2190EC45500E2427A /* MarveliOS.xcdatamodeld */,
+				B548C2E4190EC45500E2427A /* MV_Store.h */,
+				B548C2E5190EC45500E2427A /* MV_Store.m */,
+				B548C2E6190EC45500E2427A /* MVM_Character.h */,
+				B548C2E7190EC45500E2427A /* MVM_Character.m */,
+				B548C2E8190EC45500E2427A /* MVM_Comic.h */,
+				B548C2E9190EC45500E2427A /* MVM_Comic.m */,
+				B548C2EA190EC45500E2427A /* MVM_ComicDate.h */,
+				B548C2EB190EC45500E2427A /* MVM_ComicDate.m */,
+				B548C2EC190EC45500E2427A /* MVM_ComicPrice.h */,
+				B548C2ED190EC45500E2427A /* MVM_ComicPrice.m */,
+				B548C2EE190EC45500E2427A /* MVM_ComicText.h */,
+				B548C2EF190EC45500E2427A /* MVM_ComicText.m */,
+				B548C2F0190EC45500E2427A /* MVM_Creator.h */,
+				B548C2F1190EC45500E2427A /* MVM_Creator.m */,
+				B548C2F2190EC45500E2427A /* MVM_Event.h */,
+				B548C2F3190EC45500E2427A /* MVM_Event.m */,
+				B548C2F4190EC45500E2427A /* MVM_Image.h */,
+				B548C2F5190EC45500E2427A /* MVM_Image.m */,
+				B548C2F6190EC45500E2427A /* MVM_Object.h */,
+				B548C2F7190EC45500E2427A /* MVM_Object.m */,
+				B548C2F8190EC45500E2427A /* MVM_Series.h */,
+				B548C2F9190EC45500E2427A /* MVM_Series.m */,
+				B548C2FA190EC45500E2427A /* MVM_Story.h */,
+				B548C2FB190EC45500E2427A /* MVM_Story.m */,
+				B548C2FC190EC45500E2427A /* MVM_URL.h */,
+				B548C2FD190EC45500E2427A /* MVM_URL.m */,
+			);
+			name = Model;
+			path = MarveliOS/Core/Model;
+			sourceTree = "<group>";
+		};
+		B548C2CB190EC45500E2427A /* machine */ = {
+			isa = PBXGroup;
+			children = (
+				B548C2CC190EC45500E2427A /* _MVM_Character.h */,
+				B548C2CD190EC45500E2427A /* _MVM_Character.m */,
+				B548C2CE190EC45500E2427A /* _MVM_Comic.h */,
+				B548C2CF190EC45500E2427A /* _MVM_Comic.m */,
+				B548C2D0190EC45500E2427A /* _MVM_ComicDate.h */,
+				B548C2D1190EC45500E2427A /* _MVM_ComicDate.m */,
+				B548C2D2190EC45500E2427A /* _MVM_ComicPrice.h */,
+				B548C2D3190EC45500E2427A /* _MVM_ComicPrice.m */,
+				B548C2D4190EC45500E2427A /* _MVM_ComicText.h */,
+				B548C2D5190EC45500E2427A /* _MVM_ComicText.m */,
+				B548C2D6190EC45500E2427A /* _MVM_Creator.h */,
+				B548C2D7190EC45500E2427A /* _MVM_Creator.m */,
+				B548C2D8190EC45500E2427A /* _MVM_Event.h */,
+				B548C2D9190EC45500E2427A /* _MVM_Event.m */,
+				B548C2DA190EC45500E2427A /* _MVM_Image.h */,
+				B548C2DB190EC45500E2427A /* _MVM_Image.m */,
+				B548C2DC190EC45500E2427A /* _MVM_Series.h */,
+				B548C2DD190EC45500E2427A /* _MVM_Series.m */,
+				B548C2DE190EC45500E2427A /* _MVM_Story.h */,
+				B548C2DF190EC45500E2427A /* _MVM_Story.m */,
+				B548C2E0190EC45500E2427A /* _MVM_URL.h */,
+				B548C2E1190EC45500E2427A /* _MVM_URL.m */,
+			);
+			path = machine;
 			sourceTree = "<group>";
 		};
 		B596E9A5190BBDB5006619D6 = {
@@ -329,7 +339,7 @@
 				B596E9E7190E5AB2006619D6 /* MV_ImageCache.h */,
 				B596E9E8190E5AB2006619D6 /* MV_ImageCache.m */,
 				B596E9EA190E5AC0006619D6 /* Categories */,
-				B548C220190C7FD700E2427A /* Model */,
+				B548C2CA190EC45500E2427A /* Model */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -439,37 +449,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B548C266190C805800E2427A /* MV_Store.m in Sources */,
+				B548C301190EC45500E2427A /* _MVM_ComicPrice.m in Sources */,
 				B5A8C280190BF19A009EAA89 /* MV_ServerQuery.m in Sources */,
+				B548C312190EC45500E2427A /* MVM_Image.m in Sources */,
+				B548C30D190EC45500E2427A /* MVM_ComicDate.m in Sources */,
+				B548C304190EC45500E2427A /* _MVM_Event.m in Sources */,
+				B548C306190EC45500E2427A /* _MVM_Series.m in Sources */,
+				B548C307190EC45500E2427A /* _MVM_Story.m in Sources */,
 				B596E9E9190E5AB2006619D6 /* MV_ImageCache.m in Sources */,
-				B548C24F190C7FD700E2427A /* _MVM_Comic.m in Sources */,
-				B548C25C190C7FD700E2427A /* MVM_ComicText.m in Sources */,
-				B548C25B190C7FD700E2427A /* MVM_ComicPrice.m in Sources */,
-				B548C25F190C7FD700E2427A /* MVM_Image.m in Sources */,
-				B548C251190C7FD700E2427A /* _MVM_ComicText.m in Sources */,
-				B548C257190C7FD700E2427A /* _MVM_URL.m in Sources */,
+				B548C311190EC45500E2427A /* MVM_Event.m in Sources */,
+				B548C30C190EC45500E2427A /* MVM_Comic.m in Sources */,
+				B548C30A190EC45500E2427A /* MV_Store.m in Sources */,
+				B548C300190EC45500E2427A /* _MVM_ComicDate.m in Sources */,
+				B548C310190EC45500E2427A /* MVM_Creator.m in Sources */,
 				B596E9E2190BBE07006619D6 /* MV_DownloadManager.m in Sources */,
-				B548C25D190C7FD700E2427A /* MVM_Creator.m in Sources */,
-				B548C262190C7FD700E2427A /* MVM_Story.m in Sources */,
+				B548C309190EC45500E2427A /* MarveliOS.xcdatamodeld in Sources */,
+				B548C313190EC45500E2427A /* MVM_Object.m in Sources */,
+				B548C30B190EC45500E2427A /* MVM_Character.m in Sources */,
 				B596E9BE190BBDB5006619D6 /* main.m in Sources */,
-				B548C256190C7FD700E2427A /* _MVM_Story.m in Sources */,
 				B596E9C2190BBDB5006619D6 /* MV_AppDelegate.m in Sources */,
-				B548C253190C7FD700E2427A /* _MVM_Event.m in Sources */,
+				B548C30E190EC45500E2427A /* MVM_ComicPrice.m in Sources */,
+				B548C305190EC45500E2427A /* _MVM_Image.m in Sources */,
+				B548C308190EC45500E2427A /* _MVM_URL.m in Sources */,
+				B548C315190EC45500E2427A /* MVM_Story.m in Sources */,
+				B548C303190EC45500E2427A /* _MVM_Creator.m in Sources */,
 				B548C278190D4A0600E2427A /* MV_ObjectsTableViewController.m in Sources */,
+				B548C2FF190EC45500E2427A /* _MVM_Comic.m in Sources */,
+				B548C30F190EC45500E2427A /* MVM_ComicText.m in Sources */,
+				B548C302190EC45500E2427A /* _MVM_ComicText.m in Sources */,
 				B596E9E6190BDA5D006619D6 /* MV_Utilities.m in Sources */,
-				B548C24E190C7FD700E2427A /* _MVM_Character.m in Sources */,
-				B548C25E190C7FD700E2427A /* MVM_Event.m in Sources */,
-				B548C261190C7FD700E2427A /* MVM_Series.m in Sources */,
-				B548C260190C7FD700E2427A /* MVM_Object.m in Sources */,
-				B548C258190C7FD700E2427A /* MarveliOS.xcdatamodeld in Sources */,
-				B548C250190C7FD700E2427A /* _MVM_ComicPrice.m in Sources */,
-				B548C255190C7FD700E2427A /* _MVM_Series.m in Sources */,
-				B548C263190C7FD700E2427A /* MVM_URL.m in Sources */,
+				B548C314190EC45500E2427A /* MVM_Series.m in Sources */,
 				B548C26B190C8BA600E2427A /* NSManagedObjectContext+MV_.m in Sources */,
-				B548C25A190C7FD700E2427A /* MVM_Comic.m in Sources */,
-				B548C254190C7FD700E2427A /* _MVM_Image.m in Sources */,
-				B548C259190C7FD700E2427A /* MVM_Character.m in Sources */,
-				B548C252190C7FD700E2427A /* _MVM_Creator.m in Sources */,
+				B548C316190EC45500E2427A /* MVM_URL.m in Sources */,
+				B548C2FE190EC45500E2427A /* _MVM_Character.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,12 +697,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B548C236190C7FD700E2427A /* MarveliOS.xcdatamodeld */ = {
+		B548C2E2190EC45500E2427A /* MarveliOS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B548C237190C7FD700E2427A /* MarveliOS.xcdatamodel */,
+				B548C2E3190EC45500E2427A /* MarveliOS.xcdatamodel */,
 			);
-			currentVersion = B548C237190C7FD700E2427A /* MarveliOS.xcdatamodel */;
+			currentVersion = B548C2E3190EC45500E2427A /* MarveliOS.xcdatamodel */;
 			path = MarveliOS.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

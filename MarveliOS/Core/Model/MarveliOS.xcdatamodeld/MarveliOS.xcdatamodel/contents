@@ -35,6 +35,7 @@
         <attribute name="variantDescription" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="comics" inverseEntity="Character" syncable="YES"/>
         <relationship name="creators" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Creator" inverseName="comics" inverseEntity="Creator" syncable="YES"/>
+        <relationship name="dates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ComicDate" inverseName="comic" inverseEntity="ComicDate" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="comics" inverseEntity="Event" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="comicImage" inverseEntity="Image" syncable="YES"/>
         <relationship name="prices" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ComicPrice" inverseName="comic" inverseEntity="ComicPrice" syncable="YES"/>
@@ -44,6 +45,11 @@
         <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Image" inverseName="comic" inverseEntity="Image" syncable="YES"/>
         <relationship name="urls" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="URL" inverseName="comic" inverseEntity="URL" syncable="YES"/>
         <relationship name="variants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="variants" inverseEntity="Comic" syncable="YES"/>
+    </entity>
+    <entity name="ComicDate" representedClassName="MVM_ComicDate" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comic" inverseName="dates" inverseEntity="Comic" syncable="YES"/>
     </entity>
     <entity name="ComicPrice" representedClassName="MVM_ComicPrice" syncable="YES">
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -154,7 +160,7 @@
     </entity>
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="240"/>
-        <element name="Comic" positionX="-63" positionY="27" width="128" height="463"/>
+        <element name="Comic" positionX="-63" positionY="27" width="128" height="480"/>
         <element name="ComicPrice" positionX="-18" positionY="135" width="128" height="88"/>
         <element name="ComicText" positionX="-36" positionY="153" width="128" height="103"/>
         <element name="Creator" positionX="-27" positionY="162" width="128" height="298"/>
@@ -163,5 +169,6 @@
         <element name="Series" positionX="27" positionY="189" width="128" height="328"/>
         <element name="Story" positionX="-9" positionY="171" width="128" height="268"/>
         <element name="URL" positionX="-9" positionY="144" width="128" height="163"/>
+        <element name="ComicDate" positionX="9" positionY="153" width="128" height="88"/>
     </elements>
 </model>

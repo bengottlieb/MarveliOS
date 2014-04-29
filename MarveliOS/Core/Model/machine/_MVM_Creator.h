@@ -15,6 +15,7 @@ extern const struct MVM_CreatorAttributes {
 	__unsafe_unretained NSString *modified;
 	__unsafe_unretained NSString *partialImport;
 	__unsafe_unretained NSString *resourceURI;
+	__unsafe_unretained NSString *suffix;
 } MVM_CreatorAttributes;
 
 extern const struct MVM_CreatorRelationships {
@@ -35,6 +36,7 @@ extern const struct MVM_CreatorFetchedProperties {
 @class MVM_Story;
 @class MVM_Image;
 @class MVM_URL;
+
 
 
 
@@ -163,6 +165,16 @@ extern const struct MVM_CreatorFetchedProperties {
 
 
 //- (BOOL)validateResourceURI:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* suffix;
+
+
+
+//- (BOOL)validateSuffix:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -307,6 +319,12 @@ extern const struct MVM_CreatorFetchedProperties {
 
 - (NSString*)primitiveResourceURI;
 - (void)setPrimitiveResourceURI:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveSuffix;
+- (void)setPrimitiveSuffix:(NSString*)value;
 
 
 

@@ -26,6 +26,7 @@ const struct MVM_ComicAttributes MVM_ComicAttributes = {
 const struct MVM_ComicRelationships MVM_ComicRelationships = {
 	.characters = @"characters",
 	.creators = @"creators",
+	.dates = @"dates",
 	.events = @"events",
 	.images = @"images",
 	.prices = @"prices",
@@ -334,6 +335,19 @@ const struct MVM_ComicFetchedProperties MVM_ComicFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"creators"];
   
 	[self didAccessValueForKey:@"creators"];
+	return result;
+}
+	
+
+@dynamic dates;
+
+	
+- (NSMutableSet*)datesSet {
+	[self willAccessValueForKey:@"dates"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dates"];
+  
+	[self didAccessValueForKey:@"dates"];
 	return result;
 }
 	

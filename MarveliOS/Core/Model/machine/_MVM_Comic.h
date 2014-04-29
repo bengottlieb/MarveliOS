@@ -27,6 +27,7 @@ extern const struct MVM_ComicAttributes {
 extern const struct MVM_ComicRelationships {
 	__unsafe_unretained NSString *characters;
 	__unsafe_unretained NSString *creators;
+	__unsafe_unretained NSString *dates;
 	__unsafe_unretained NSString *events;
 	__unsafe_unretained NSString *images;
 	__unsafe_unretained NSString *prices;
@@ -43,6 +44,7 @@ extern const struct MVM_ComicFetchedProperties {
 
 @class MVM_Character;
 @class MVM_Creator;
+@class MVM_ComicDate;
 @class MVM_Event;
 @class MVM_Image;
 @class MVM_ComicPrice;
@@ -288,6 +290,13 @@ extern const struct MVM_ComicFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *dates;
+
+- (NSMutableSet*)datesSet;
+
+
+
+
 @property (nonatomic, strong) NSSet *events;
 
 - (NSMutableSet*)eventsSet;
@@ -365,6 +374,11 @@ extern const struct MVM_ComicFetchedProperties {
 - (void)removeCreators:(NSSet*)value_;
 - (void)addCreatorsObject:(MVM_Creator*)value_;
 - (void)removeCreatorsObject:(MVM_Creator*)value_;
+
+- (void)addDates:(NSSet*)value_;
+- (void)removeDates:(NSSet*)value_;
+- (void)addDatesObject:(MVM_ComicDate*)value_;
+- (void)removeDatesObject:(MVM_ComicDate*)value_;
 
 - (void)addEvents:(NSSet*)value_;
 - (void)removeEvents:(NSSet*)value_;
@@ -521,6 +535,11 @@ extern const struct MVM_ComicFetchedProperties {
 
 - (NSMutableSet*)primitiveCreators;
 - (void)setPrimitiveCreators:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveDates;
+- (void)setPrimitiveDates:(NSMutableSet*)value;
 
 
 

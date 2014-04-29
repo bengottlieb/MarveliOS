@@ -1,16 +1,16 @@
 #import "MVM_Object.h"
 #import "NSManagedObjectContext+MV_.h"
 
-#import "MVM_Image.h"
-
+#import "MV_DownloadManager.h"
+#import "MV_Store.h"
 #import "MVM_Series.h"
 #import "MVM_Story.h"
 #import "MVM_Character.h"
 #import "MVM_Comic.h"
 #import "MVM_Event.h"
 #import "MVM_Creator.h"
-#import "MV_DownloadManager.h"
-#import "MV_Store.h"
+#import "MVM_ComicDate.h"
+#import "MVM_Image.h"
 
 #import <objc/message.h>
 
@@ -109,6 +109,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 }
 
 
+
 //================================================================================================================
 #pragma mark Importers
 - (void) importThumbnail: (NSDictionary *) info toDepth: (NSNumber *) depth {
@@ -205,6 +206,48 @@ static NSMutableSet			*s_pendingUpdates = nil;
 		if (creator) [existing addObject: creator];
 	}
 }
+
+- (void) importDates: (NSDictionary *) datesInfo toDepth: (NSNumber *) depth {
+	static NSDateFormatter		*formatter = nil;
+
+	if (formatter == nil) {
+		formatter = [NSDateFormatter new];
+		[formatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ssz"];
+	}
+	
+	NSMutableSet				*existingDatesObjects = [self mutableSetValueForKey: @"dates"];
+	NSSet						*existingDates = [existingDatesObjects valueForKey: @"date"];
+	NSMutableArray				*incomingDates = [NSMutableArray array];
+	
+	for (NSDictionary *dateInfo in datesInfo) {
+		NSDate			*date = [formatter dateFromString: dateInfo[@"date"]];
+		
+		if (date) [incomingDates addObject: date];
+	}
+	
+	for (MVM_ComicDate *date in existingDates.copy) {			//delete any dates no longer attached
+		if (![incomingDates containsObject: date[@"date"]]) {
+			[existingDatesObjects removeObject: date];
+			[self.managedObjectContext deleteObject: date];
+		}
+	}
+	
+	for (NSDictionary *info in datesInfo) {
+		if (![existingDates containsObject: info[@"date"]]) {
+			NSDate					*date = [formatter dateFromString: info[@"date"]];
+			if (date == nil) continue;
+			
+			MVM_ComicDate			*dateObject = [self.managedObjectContext mv_insertNewEntityWithName: [MVM_ComicDate entityName]];
+
+			dateObject.date = date;
+			dateObject.type = info[@"type"];
+		}
+	}
+}
+
+//================================================================================================================
+#pragma mark Images
+
 
 - (void) fetchThumbnailWithCompletion: (mv_imageDownloadCompletionBlock) completion {
 	if (self[@"thumbnail"] == nil) {

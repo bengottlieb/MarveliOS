@@ -14,6 +14,7 @@ const struct MVM_CreatorAttributes MVM_CreatorAttributes = {
 	.modified = @"modified",
 	.partialImport = @"partialImport",
 	.resourceURI = @"resourceURI",
+	.suffix = @"suffix",
 };
 
 const struct MVM_CreatorRelationships MVM_CreatorRelationships = {
@@ -173,6 +174,13 @@ const struct MVM_CreatorFetchedProperties MVM_CreatorFetchedProperties = {
 
 
 @dynamic resourceURI;
+
+
+
+
+
+
+@dynamic suffix;
 
 
 

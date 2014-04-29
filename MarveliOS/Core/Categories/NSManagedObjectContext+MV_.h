@@ -12,5 +12,6 @@
 
 - (NSFetchRequest *) mv_fetchRequestWithEntityName: (NSString *) entityName predicate: (NSPredicate *) predicate sortBy: (NSArray *) sortBy fetchLimit: (int) fetchLimit;
 - (id) mv_anyObjectOfType: (NSString *) entityName matchingPredicate: (NSPredicate *) predicate;
+- (NSUInteger) mv_numberOfObjectsOfType: (NSString *) entityName matchingPredicate: (NSPredicate *) predicate;
 - (id) mv_insertNewEntityWithName: (NSString *) name;
 @end
