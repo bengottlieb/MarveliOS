@@ -10,6 +10,9 @@
  */
 
 
+extern NSString * const NO_IMAGE_AVAILABLE_PATH;
+
+
 typedef void (^mv_downloadCompletionBlock)(NSData *data, NSError *error);
 typedef void (^mv_jsonDownloadCompletionBlock)(NSDictionary *results, NSError *error);
 typedef void (^mv_imageDownloadCompletionBlock)(UIImage *image, NSError *error);
@@ -56,7 +59,7 @@ typedef NS_ENUM(UInt8, MV_Image_size) {
 //=============================================================================================================================
 #pragma mark Errors
 
-extern NSString			* const MV_ErrorDomain;
+extern NSString * const MV_ErrorDomain;
 
 
 typedef NS_ENUM(NSUInteger, MV_Error) {

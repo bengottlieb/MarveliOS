@@ -1,6 +1,8 @@
 
 
-NSString			* const MV_ErrorDomain = @"MV_ErrorDomain";
+NSString * const NO_IMAGE_AVAILABLE_PATH = @"http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
+
+NSString * const MV_ErrorDomain = @"MV_ErrorDomain";
 
 
 

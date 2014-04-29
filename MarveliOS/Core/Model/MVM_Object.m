@@ -138,6 +138,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 	}
 	
 	for (NSDictionary *info in imagesInfo) {
+		if ([info[@"path"] isEqual: NO_IMAGE_AVAILABLE_PATH]) continue;		//skip the No Image Available URLs
 		if (![existingPaths containsObject: info[@"path"]]) {
 			MVM_Image			*image = [self.managedObjectContext mv_insertNewEntityWithName: [MVM_Image entityName]];
 			image.path = info[@"path"];
