@@ -38,6 +38,13 @@
 	return (results.count) ? results.firstObject : nil;
 }
 
+- (NSArray *) mv_allObjectsOfType: (NSString *) entityName matchingPredicate: (NSPredicate *) predicate {
+	NSFetchRequest					*request = [self mv_fetchRequestWithEntityName: entityName predicate: predicate sortBy: nil fetchLimit: 0];
+	NSError							*error = nil;
+	
+	return [self executeFetchRequest: request error: &error];
+}
+
 - (NSUInteger) mv_numberOfObjectsOfType: (NSString *) entityName matchingPredicate: (NSPredicate *) predicate {
 	NSFetchRequest					*request = [self mv_fetchRequestWithEntityName: entityName predicate: predicate sortBy: nil fetchLimit: 1];
 	NSError							*error = nil;
