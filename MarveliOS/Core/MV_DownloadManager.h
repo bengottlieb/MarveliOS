@@ -25,9 +25,9 @@ SINGLETON_INTERFACE_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager);
 @property (nonatomic, readonly) unsigned long apiUseCount;			//reset every day. This isn't quite what the API limits you to, but it's a good metric
 
 
-- (void) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion;
-- (void) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion;
-- (void) downloadRequest: (NSURLRequest *) request withCompletion: (mv_downloadCompletionBlock) completion;
+- (NSURLSessionDataTask *) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion;
+- (NSURLSessionDataTask *) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion;
+- (NSURLSessionDataTask *) downloadRequest: (NSURLRequest *) request withCompletion: (mv_downloadCompletionBlock) completion;
 
 
 //utilities

@@ -29,13 +29,13 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 	return self;
 }
 
-- (void) fetchImageAtURL: (NSURL *) url withCompletion: (mv_imageDownloadCompletionBlock) completion {
+- (NSURLSessionDataTask *) fetchImageAtURL: (NSURL *) url withCompletion: (mv_imageDownloadCompletionBlock) completion {
 	NSString			*key = [self keyFromURL: url];
 	UIImage				*image = [self.cache objectForKey: key];
 	
 	if (image) {
 		completion(image, nil);
-		return;
+		return nil;
 	}
 	
 	NSURL				*fileURL = [self.cacheDirectoryURL URLByAppendingPathComponent: [NSString stringWithFormat: @"%@.%@", key, url.pathExtension]];
@@ -44,10 +44,10 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 	
 	if (image) {
 		completion(image, nil);
-		return;
+		return nil;
 	}
 	
-	[[MV_DownloadManager defaultManager] downloadRequest: [NSURLRequest requestWithURL: url] withCompletion: ^(NSData *data, NSError *error) {
+	return [[MV_DownloadManager defaultManager] downloadRequest: [NSURLRequest requestWithURL: url] withCompletion: ^(NSData *data, NSError *error) {
 		UIImage			*freshImage = data ? [UIImage imageWithData: data] : nil;
 		
 		if (freshImage) {

@@ -38,7 +38,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	return self;
 }
 
-- (void) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion {
+- (NSURLSessionDataTask *) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion {
 	NSArray			*imageSizes = @[ @"portrait_small", @"portrait_medium", @"portrait_xlarge", @"portrait_fantastic", @"portrait_uncanny", @"portrait_incredible",
 									 @"standard_small", @"standard_medium", @"standard_large", @"standard_xlarge", @"standard_fantastic", @"standard_amazing",
 									 @"landscape_small", @"landscape_medium", @"landscape_large", @"landscape_xlarge", @"landscape_amazing", @"landscape_incredible" ];
@@ -47,11 +47,11 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	
 	NSURL			*url = [NSURL URLWithString: path];
 	
-	[[MV_ImageCache defaultCache] fetchImageAtURL: url withCompletion: completion];
+	return [[MV_ImageCache defaultCache] fetchImageAtURL: url withCompletion: completion];
 }
 
-- (void) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion {
-	[self downloadRequest: [NSURLRequest requestWithURL: url] withCompletion: ^(NSData *data, NSError *error) {
+- (NSURLSessionDataTask *) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion {
+	return [self downloadRequest: [NSURLRequest requestWithURL: url] withCompletion: ^(NSData *data, NSError *error) {
 		if (error) {
 			completion(nil, error);
 		} else {
@@ -99,15 +99,15 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 //=============================================================================================================================
 #pragma mark Utilities
 
-- (void) downloadRequest: (NSURLRequest *) request withCompletion: (mv_downloadCompletionBlock) completion {
+- (NSURLSessionDataTask *) downloadRequest: (NSURLRequest *) request withCompletion: (mv_downloadCompletionBlock) completion {
 	if (request == nil) {
 		completion(nil, [NSError errorWithDomain: MV_ErrorDomain code: MV_Error_missingAPIKeys userInfo: nil]);
-		return;
+		return nil;
 	}
 	
 	self.activityIndicatorCount++;
 	
-	if ([request.URL.query rangeOfString: @"apikey="].location != NSNotFound) self.apiUseCount++;
+	if (request.URL && [request.URL.query rangeOfString: @"apikey="].location != NSNotFound) self.apiUseCount++;
 	
 	NSURLSessionDataTask	*task = [self.session dataTaskWithRequest: request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSUInteger			statusCode = [(NSHTTPURLResponse *) response statusCode];
@@ -129,6 +129,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 		self.activityIndicatorCount--;
 	}];
 	[task resume];
+	return task;
 }
 
 - (NSURL *) paramaterizeURL: (NSURL *) url withParameters: (NSDictionary *) parameters {
