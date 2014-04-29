@@ -16,7 +16,8 @@
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic) unsigned long activityIndicatorCount;
-@property (nonatomic) unsigned long timeStamp;
+@property (nonatomic, readwrite) unsigned long timeStamp, apiUseCount;
+@property (nonatomic, strong) NSDate *currentDaysAPIUseFirstTime;
 @end
 
 
@@ -30,6 +31,9 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 		self.timeStamp = [NSDate timeIntervalSinceReferenceDate];
 		self.queue = [NSOperationQueue new];
 		self.apiLimitHitBlock = ^{ [UIAlertView showAlertWithTitle: @"API Limit Reached" message: @"You've reached your API limit for the day. Come back tomrorow!"]; };
+		
+		[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(significantTimeChange) name: UIApplicationSignificantTimeChangeNotification object: nil];
+		_apiUseCount = [[[NSUserDefaults standardUserDefaults] objectForKey: API_USE_KEY_DEFAULTS_KEY] unsignedLongValue];
 	}
 	return self;
 }
@@ -75,6 +79,20 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	return _session;
 }
 
+- (void) setApiUseCount: (unsigned long) apiUseCount {
+	NSUserDefaults			*defaults = [NSUserDefaults standardUserDefaults];
+	
+	[defaults setObject: @(apiUseCount) forKey: API_USE_KEY_DEFAULTS_KEY];
+	[defaults synchronize];
+}
+
+
+//================================================================================================================
+#pragma mark Notifications
+- (void) significantTimeChange {
+	self.apiUseCount = 0;
+}
+
 //=============================================================================================================================
 #pragma mark Utilities
 
@@ -85,6 +103,8 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 	}
 	
 	self.activityIndicatorCount++;
+	
+	if ([request.URL.query rangeOfString: @"apikey="].location == NSNotFound) self.apiUseCount++;
 	
 	NSURLSessionDataTask	*task = [self.session dataTaskWithRequest: request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
 		NSUInteger			statusCode = [(NSHTTPURLResponse *) response statusCode];

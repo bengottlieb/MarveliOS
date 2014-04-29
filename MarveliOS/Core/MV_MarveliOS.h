@@ -14,7 +14,7 @@ typedef void (^mv_downloadCompletionBlock)(NSData *data, NSError *error);
 typedef void (^mv_jsonDownloadCompletionBlock)(NSDictionary *results, NSError *error);
 typedef void (^mv_imageDownloadCompletionBlock)(UIImage *image, NSError *error);
 typedef void (^mv_queryCompletedBlock)(NSError *error);
-typedef void (^mv_progressBlock)(CGFloat percentComplete);
+typedef void (^mv_progressBlock)(NSUInteger countSoFar, NSUInteger total);
 typedef void (^mv_contextBlock)(NSManagedObjectContext *moc);
 typedef void (^mv_importCompletionBlock)(NSArray *importedObjectIDs);
 typedef void (^mv_simpleBlock)();

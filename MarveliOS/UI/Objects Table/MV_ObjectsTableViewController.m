@@ -68,10 +68,10 @@
 		[alert show];
 		
 		MV_ServerQuery				*query = [MV_ServerQuery queryForAllObjectsOfType: self.objectType];
-		query.progressBlock = ^(CGFloat progress) {
+		query.progressBlock = ^(NSUInteger countSoFar, NSUInteger total) {
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[alert dismissWithClickedButtonIndex: 0 animated: NO];
-				alert = [[UIAlertView alloc] initWithTitle: title message: [NSString stringWithFormat: @"Downloading… %.0f%%", progress * 100.0] delegate: nil cancelButtonTitle: nil otherButtonTitles: nil];
+				alert = [[UIAlertView alloc] initWithTitle: title message: [NSString stringWithFormat: @"Downloading… %d (%.0f%%)", (UInt16) countSoFar, ((float) countSoFar / (float) total) * 100.0] delegate: nil cancelButtonTitle: nil otherButtonTitles: nil];
 				[alert show];
 			});
 		};

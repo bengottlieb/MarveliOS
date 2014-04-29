@@ -1,7 +1,7 @@
 
 
 #define			BASE_API_ENDPOINT				[NSURL URLWithString: @"http://gateway.marvel.com/"]
-
+#define			API_USE_KEY_DEFAULTS_KEY		@"api-use-count"
 
 
 #define SINGLETON_INTERFACE_FOR_CLASS_AND_METHOD(classname, methodName)			+ (classname *) methodName;

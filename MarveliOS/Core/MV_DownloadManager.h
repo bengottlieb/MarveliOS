@@ -22,6 +22,8 @@ SINGLETON_INTERFACE_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager);
 @property (nonatomic, copy) mv_simpleBlock apiLimitHitBlock;		//this is called when you hit your API limit for the day
 @property (nonatomic) BOOL useNetworkActivityIndictor;				//should we turn the networkActivityIndictor on and off as we pull data down?
 
+@property (nonatomic, readonly) unsigned long apiUseCount;			//reset every day. This isn't quite what the API limits you to, but it's a good metric
+
 
 - (void) downloadJSON: (NSURL *) url withCompletion: (mv_jsonDownloadCompletionBlock) completion;
 - (void) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion;

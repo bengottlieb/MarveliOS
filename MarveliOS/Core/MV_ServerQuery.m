@@ -32,7 +32,7 @@
 	query.relatedObjectDepth = 1;
 	
 	#if DEBUG
-		query.progressBlock = ^(CGFloat progress) { NSLog(@"%.1f%%", progress * 100.0); };
+		query.progressBlock = ^(NSUInteger countSoFar, NSUInteger total) { NSLog(@"%d of %d", (UInt16) countSoFar, (UInt16) total); };
 	#endif
 	
 	return query;
@@ -66,7 +66,7 @@
 			
 			if (self.cacheResults && self.objectServerType != MV_Object_type_none)
 				[[MV_Store store] importServerObjects: chunkResults ofType: self.objectServerType toDepth: self.relatedObjectDepth withCompletion: ^(NSArray *importedIDs) {
-					if (self.progressBlock) self.progressBlock( ((float) self.collectedIDs.count) / ((float) (self.fetchAll ? self.total : self.numberToFetch)) );
+					if (self.progressBlock) self.progressBlock( self.collectedIDs.count, self.fetchAll ? self.total : self.numberToFetch);
 					[self.collectedIDs addObjectsFromArray: importedIDs];
 				}];
 			
