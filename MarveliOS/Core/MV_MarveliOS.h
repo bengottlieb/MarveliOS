@@ -53,6 +53,9 @@ typedef NS_ENUM(UInt8, MV_Image_size) {
 	MV_Image_size_landscape_xlarge,			//	270x200px
 	MV_Image_size_landscape_amazing,		//	250x156px
 	MV_Image_size_landscape_incredible,		//	464x261px
+
+	MV_Image_size_detail,
+	MV_Image_size_full_size,
 };
 
 

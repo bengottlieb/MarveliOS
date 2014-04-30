@@ -41,7 +41,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_DownloadManager, defaultManager
 - (NSURLSessionDataTask *) downloadImageWithPath: (NSString *) path ofSize: (MV_Image_size) size extension: (NSString *) ext andCompletion: (mv_imageDownloadCompletionBlock) completion {
 	NSArray			*imageSizes = @[ @"portrait_small", @"portrait_medium", @"portrait_xlarge", @"portrait_fantastic", @"portrait_uncanny", @"portrait_incredible",
 									 @"standard_small", @"standard_medium", @"standard_large", @"standard_xlarge", @"standard_fantastic", @"standard_amazing",
-									 @"landscape_small", @"landscape_medium", @"landscape_large", @"landscape_xlarge", @"landscape_amazing", @"landscape_incredible" ];
+									 @"landscape_small", @"landscape_medium", @"landscape_large", @"landscape_xlarge", @"landscape_amazing", @"landscape_incredible", @"detail", @"detail" ];
 	
 	path = [path stringByAppendingPathComponent: [NSString stringWithFormat: @"%@.%@", imageSizes[size], ext]];
 	
