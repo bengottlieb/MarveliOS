@@ -120,6 +120,8 @@ static NSMutableSet			*s_pendingUpdates = nil;
 	
 	if (thumbnail) [self.managedObjectContext deleteObject: thumbnail];
 	
+	if ([info[@"path"] isEqual: NO_IMAGE_AVAILABLE_PATH]) return;
+	
 	thumbnail = [self.managedObjectContext mv_insertNewEntityWithName: [MVM_Image entityName]];
 	thumbnail.path = info[@"path"];
 	thumbnail.extension = info[@"extension"];
