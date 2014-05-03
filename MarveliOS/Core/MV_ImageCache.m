@@ -9,7 +9,7 @@
 #import "MV_ImageCache.h"
 #import "MV_DownloadManager.h"
 
-@interface MV_ImageCache ()
+@interface MV_ImageCache () <NSCacheDelegate>
 @property (nonatomic, strong) NSCache *cache;
 @property (nonatomic, strong) NSURL *cacheDirectoryURL;
 @end
@@ -20,6 +20,8 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 - (id) init {
 	if (self = [super init]) {
 		self.cache = [NSCache new];
+		self.cache.totalCostLimit = 1024 * 50;
+		self.cache.delegate = self;
 		self.cacheDirectoryURL = [[NSURL fileURLWithPath: NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject] URLByAppendingPathComponent: @"mv_images_cache"];
 		
 		NSError				*error;
@@ -44,7 +46,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 	
 	if (image) {
 		completion(image, nil);
-		[self.cache setObject: image forKey: key];
+		[self.cache setObject: image forKey: key cost: image.size.width * image.size.height / 1024];
 		return nil;
 	}
 	
@@ -53,7 +55,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 		
 		if (freshImage) {
 			completion(freshImage, nil);
-			[self.cache setObject: freshImage forKey: key];
+			[self.cache setObject: freshImage forKey: key cost: image.size.width * image.size.height / 1024];
 			
 			[data writeToURL: fileURL atomically: YES];
 		} else {
@@ -67,4 +69,6 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 	return [url.path stringByReplacingOccurrencesOfString: @"/" withString: @"_"];
 }
 
+- (void) cache: (NSCache *) cache willEvictObject: (UIImage *) image {
+}
 @end
