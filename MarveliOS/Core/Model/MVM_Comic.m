@@ -16,5 +16,16 @@
 + (NSString *) userVisibleName { return @"comic"; }
 + (NSString *) userVisiblePluralName  { return @"comics"; }
 - (NSString *) mainTableText { return self.title; };
-
+- (NSString *) detailedDescription {
+	return [NSString stringWithFormat: @"Characters: %@\n"
+			@"Creators: %@\n"
+			@"Dates: %@\n"
+			@"Events: %@\n"
+			, [[self.characters.allObjects valueForKey: @"name"] componentsJoinedByString: @", " ]
+			, [[self.creators.allObjects valueForKey: @"fullName"] componentsJoinedByString: @", " ]
+			, [[self.dates.allObjects valueForKey: @"date"] componentsJoinedByString: @", " ]
+			, [[self.events.allObjects valueForKey: @"title"] componentsJoinedByString: @", " ]
+			
+			];
+}
 @end
