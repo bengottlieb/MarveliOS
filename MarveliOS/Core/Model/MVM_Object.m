@@ -239,6 +239,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 
 			dateObject.date = date;
 			dateObject.type = info[@"type"];
+			[existingDatesObjects addObject: dateObject];
 		}
 	}
 }
