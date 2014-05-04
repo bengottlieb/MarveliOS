@@ -10,6 +10,7 @@ extern const struct MVM_ComicAttributes {
 	__unsafe_unretained NSString *diamondCode;
 	__unsafe_unretained NSString *digialId;
 	__unsafe_unretained NSString *ean;
+	__unsafe_unretained NSString *earliestDate;
 	__unsafe_unretained NSString *format;
 	__unsafe_unretained NSString *isbn;
 	__unsafe_unretained NSString *issn;
@@ -54,6 +55,7 @@ extern const struct MVM_ComicFetchedProperties {
 @class MVM_Image;
 @class MVM_URL;
 @class MVM_Comic;
+
 
 
 
@@ -139,6 +141,16 @@ extern const struct MVM_ComicFetchedProperties {
 
 
 //- (BOOL)validateEan:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* earliestDate;
+
+
+
+//- (BOOL)validateEarliestDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -442,6 +454,12 @@ extern const struct MVM_ComicFetchedProperties {
 
 - (NSString*)primitiveEan;
 - (void)setPrimitiveEan:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveEarliestDate;
+- (void)setPrimitiveEarliestDate:(NSDate*)value;
 
 
 

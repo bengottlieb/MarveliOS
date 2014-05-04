@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Character" representedClassName="MVM_Character" syncable="YES">
         <attribute name="apiDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="apiId" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -21,6 +21,7 @@
         <attribute name="diamondCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="digialId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="ean" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="earliestDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="format" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="issn" optional="YES" attributeType="String" syncable="YES"/>
@@ -160,7 +161,8 @@
     </entity>
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="240"/>
-        <element name="Comic" positionX="-63" positionY="27" width="128" height="480"/>
+        <element name="Comic" positionX="-63" positionY="27" width="128" height="495"/>
+        <element name="ComicDate" positionX="9" positionY="153" width="128" height="88"/>
         <element name="ComicPrice" positionX="-18" positionY="135" width="128" height="88"/>
         <element name="ComicText" positionX="-36" positionY="153" width="128" height="103"/>
         <element name="Creator" positionX="-27" positionY="162" width="128" height="298"/>
@@ -169,6 +171,5 @@
         <element name="Series" positionX="27" positionY="189" width="128" height="328"/>
         <element name="Story" positionX="-9" positionY="171" width="128" height="268"/>
         <element name="URL" positionX="-9" positionY="144" width="128" height="163"/>
-        <element name="ComicDate" positionX="9" positionY="153" width="128" height="88"/>
     </elements>
 </model>

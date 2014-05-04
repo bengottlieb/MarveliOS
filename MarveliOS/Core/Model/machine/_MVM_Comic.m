@@ -9,6 +9,7 @@ const struct MVM_ComicAttributes MVM_ComicAttributes = {
 	.diamondCode = @"diamondCode",
 	.digialId = @"digialId",
 	.ean = @"ean",
+	.earliestDate = @"earliestDate",
 	.format = @"format",
 	.isbn = @"isbn",
 	.issn = @"issn",
@@ -166,6 +167,13 @@ const struct MVM_ComicFetchedProperties MVM_ComicFetchedProperties = {
 
 
 @dynamic ean;
+
+
+
+
+
+
+@dynamic earliestDate;
 
 
 

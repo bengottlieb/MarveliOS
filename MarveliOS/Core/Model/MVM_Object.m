@@ -242,6 +242,8 @@ static NSMutableSet			*s_pendingUpdates = nil;
 			[existingDatesObjects addObject: dateObject];
 		}
 	}
+    
+    self[@"earliestDate"] = (existingDatesObjects.count) ? [existingDatesObjects.allObjects sortedArrayUsingDescriptors: @[ [NSSortDescriptor sortDescriptorWithKey: @"date" ascending: YES] ]].firstObject[@"date"] : nil;
 }
 
 //================================================================================================================
