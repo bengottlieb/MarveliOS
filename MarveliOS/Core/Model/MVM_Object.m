@@ -223,7 +223,7 @@ static NSMutableSet			*s_pendingUpdates = nil;
 		if (date) [incomingDates addObject: date];
 	}
 	
-	for (MVM_ComicDate *date in existingDates.copy) {			//delete any dates no longer attached
+	for (MVM_ComicDate *date in existingDatesObjects.copy) {			//delete any dates no longer attached
 		if (![incomingDates containsObject: date[@"date"]]) {
 			[existingDatesObjects removeObject: date];
 			[self.managedObjectContext deleteObject: date];
