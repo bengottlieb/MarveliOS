@@ -8,12 +8,13 @@
 + (NSString *) userVisibleName;
 + (NSString *) userVisiblePluralName;
 
-- (NSString *) mainTableText;
-
-
 
 + (instancetype) importServerObject: (NSDictionary *) serverObject toDepth: (NSUInteger) depth intoContext: (NSManagedObjectContext *) moc;
 + (instancetype) findObjectMatching: (NSDictionary *) serverObject inContext: (NSManagedObjectContext *) moc;
+
+@property (nonatomic, readonly) NSString *detailedDescription, *mainTableText;
+
+
 - (void) updateFromServerObject: (NSDictionary *) serverObject toDepth: (NSUInteger) depth;
 - (void) fetchUpdateFromServerToDepth: (NSUInteger) depth;
 

@@ -273,10 +273,13 @@ static NSMutableSet			*s_pendingUpdates = nil;
 + (NSString *) defaultSortKey { return @"name"; }
 + (NSString *) userVisibleName { return @""; }
 + (NSString *) userVisiblePluralName  { return @""; }
+
 - (NSString *) mainTableText { return @""; };
 
 //================================================================================================================
 #pragma mark Utility
+- (NSString *) detailedDescription { return self.description; }
+
 - (NSString *) convertServerFieldToObjectField: (NSString *) field {
 	if ([field isEqual: @"id"]) return @"apiId";
 	if ([field isEqual: @"description"]) return @"apiDescription";
