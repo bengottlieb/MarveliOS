@@ -19,7 +19,7 @@ SINGLETON_IMPLEMENTATION_FOR_CLASS_AND_METHOD(MV_ImageCache, defaultCache);
 
 - (id) init {
 	if (self = [super init]) {
-		self.cache = [NSCache new];
+		self.cache = nil;//[NSCache new];
 		self.cache.totalCostLimit = 1024 * 50;
 		self.cache.delegate = self;
 		self.cacheDirectoryURL = [[NSURL fileURLWithPath: NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject] URLByAppendingPathComponent: @"mv_images_cache"];
