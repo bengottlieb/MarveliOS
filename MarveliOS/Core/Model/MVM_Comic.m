@@ -19,11 +19,11 @@
 - (NSString *) detailedDescription {
 	return [NSString stringWithFormat: @"Characters: %@\n"
 			@"Creators: %@\n"
-			@"Dates: %@\n"
+			@"First: %@\n"
 			@"Events: %@\n"
 			, [[self.characters.allObjects valueForKey: @"name"] componentsJoinedByString: @", " ]
 			, [[self.creators.allObjects valueForKey: @"fullName"] componentsJoinedByString: @", " ]
-			, [[self.dates.allObjects valueForKey: @"date"] componentsJoinedByString: @", " ]
+			, self.earliestDate ?: @"--"
 			, [[self.events.allObjects valueForKey: @"title"] componentsJoinedByString: @", " ]
 			
 			];
