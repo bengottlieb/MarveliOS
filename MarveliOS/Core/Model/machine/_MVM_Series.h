@@ -14,7 +14,7 @@ extern const struct MVM_SeriesAttributes {
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *startYear;
 	__unsafe_unretained NSString *title;
-	__unsafe_unretained NSString *totleInitial;
+	__unsafe_unretained NSString *titleInitial;
 } MVM_SeriesAttributes;
 
 extern const struct MVM_SeriesRelationships {
@@ -172,11 +172,11 @@ extern const struct MVM_SeriesFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* totleInitial;
+@property (nonatomic, strong) NSString* titleInitial;
 
 
 
-//- (BOOL)validateTotleInitial:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validatetitleInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -351,8 +351,8 @@ extern const struct MVM_SeriesFetchedProperties {
 
 
 
-- (NSString*)primitiveTotleInitial;
-- (void)setPrimitiveTotleInitial:(NSString*)value;
+- (NSString*)primitivetitleInitial;
+- (void)setPrimitivetitleInitial:(NSString*)value;
 
 
 

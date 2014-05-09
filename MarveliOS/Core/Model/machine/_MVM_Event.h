@@ -13,7 +13,7 @@ extern const struct MVM_EventAttributes {
 	__unsafe_unretained NSString *resourceURI;
 	__unsafe_unretained NSString *start;
 	__unsafe_unretained NSString *title;
-	__unsafe_unretained NSString *totleInitial;
+	__unsafe_unretained NSString *titleInitial;
 } MVM_EventAttributes;
 
 extern const struct MVM_EventRelationships {
@@ -148,11 +148,11 @@ extern const struct MVM_EventFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* totleInitial;
+@property (nonatomic, strong) NSString* titleInitial;
 
 
 
-//- (BOOL)validateTotleInitial:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validatetitleInitial:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -301,8 +301,8 @@ extern const struct MVM_EventFetchedProperties {
 
 
 
-- (NSString*)primitiveTotleInitial;
-- (void)setPrimitiveTotleInitial:(NSString*)value;
+- (NSString*)primitivetitleInitial;
+- (void)setPrimitivetitleInitial:(NSString*)value;
 
 
 

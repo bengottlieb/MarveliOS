@@ -13,7 +13,7 @@ const struct MVM_SeriesAttributes MVM_SeriesAttributes = {
 	.resourceURI = @"resourceURI",
 	.startYear = @"startYear",
 	.title = @"title",
-	.totleInitial = @"totleInitial",
+	.titleInitial = @"titleInitial",
 };
 
 const struct MVM_SeriesRelationships MVM_SeriesRelationships = {
@@ -223,7 +223,7 @@ const struct MVM_SeriesFetchedProperties MVM_SeriesFetchedProperties = {
 
 
 
-@dynamic totleInitial;
+@dynamic titleInitial;
 
 
 

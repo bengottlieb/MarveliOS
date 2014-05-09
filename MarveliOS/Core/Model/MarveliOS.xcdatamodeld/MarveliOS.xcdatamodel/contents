@@ -91,7 +91,7 @@
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="totleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="events" inverseEntity="Character" syncable="YES"/>
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="events" inverseEntity="Comic" syncable="YES"/>
         <relationship name="creators" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Creator" inverseName="events" inverseEntity="Creator" syncable="YES"/>
@@ -121,7 +121,7 @@
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="totleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="series" inverseEntity="Character" syncable="YES"/>
         <relationship name="comic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="series" inverseEntity="Comic" syncable="YES"/>
         <relationship name="creators" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Creator" inverseName="series" inverseEntity="Creator" syncable="YES"/>
@@ -139,7 +139,7 @@
         <attribute name="partialImport" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="totleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="stories" inverseEntity="Character" syncable="YES"/>
         <relationship name="comics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" inverseName="stories" inverseEntity="Comic" syncable="YES"/>
@@ -166,10 +166,10 @@
         <element name="ComicPrice" positionX="-18" positionY="135" width="128" height="88"/>
         <element name="ComicText" positionX="-36" positionY="153" width="128" height="103"/>
         <element name="Creator" positionX="-27" positionY="162" width="128" height="298"/>
-        <element name="Event" positionX="9" positionY="180" width="128" height="283"/>
+        <element name="Event" positionX="9" positionY="180" width="128" height="285"/>
         <element name="Image" positionX="-54" positionY="117" width="128" height="178"/>
-        <element name="Series" positionX="27" positionY="189" width="128" height="328"/>
-        <element name="Story" positionX="-9" positionY="171" width="128" height="268"/>
+        <element name="Series" positionX="27" positionY="189" width="128" height="330"/>
+        <element name="Story" positionX="-9" positionY="171" width="128" height="270"/>
         <element name="URL" positionX="-9" positionY="144" width="128" height="163"/>
     </elements>
 </model>

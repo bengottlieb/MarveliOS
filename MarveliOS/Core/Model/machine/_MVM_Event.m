@@ -12,7 +12,7 @@ const struct MVM_EventAttributes MVM_EventAttributes = {
 	.resourceURI = @"resourceURI",
 	.start = @"start",
 	.title = @"title",
-	.totleInitial = @"totleInitial",
+	.titleInitial = @"titleInitial",
 };
 
 const struct MVM_EventRelationships MVM_EventRelationships = {
@@ -165,7 +165,7 @@ const struct MVM_EventFetchedProperties MVM_EventFetchedProperties = {
 
 
 
-@dynamic totleInitial;
+@dynamic titleInitial;
 
 
 

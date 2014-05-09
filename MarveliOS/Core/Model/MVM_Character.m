@@ -20,7 +20,7 @@
 	NSArray				*comics = [self.comics sortedArrayUsingDescriptors: @[ [NSSortDescriptor sortDescriptorWithKey: @"earliestDate" ascending: YES]] ];
 	static NSDate		*oldDate = nil;
 	
-	if (oldDate == nil) oldDate = [NSDate dateWithNaturalLanguageString: @"1930-01-01 00:00:00 +0000" andFormatHint: nil];
+	if (oldDate == nil) oldDate = [NSDate dateWithTimeIntervalSinceReferenceDate: -2240589600];	//1930-01-01 00:00:00 +0000
 	
 	MVM_Comic			*first = nil;
 	
