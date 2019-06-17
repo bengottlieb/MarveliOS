@@ -1,7 +1,7 @@
 import Foundation
 import CryptoKit
 
-@available(OSX 10.15, *)
+@available(OSX 10.15, iOS 13.0, *)
 public class MarvelAPI {
 	public static let instance = MarvelAPI()
 	
@@ -91,7 +91,7 @@ public class MarvelAPI {
 	}
 }
 
-@available(OSX 10.15, *)
+@available(OSX 10.15, iOS 13.0, *)
 extension String {
 	var MD5: String {
 		let digest = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
