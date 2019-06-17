@@ -8,7 +8,7 @@
 import Foundation
 
 
-@available(OSX 10.15, *)
+@available(OSX 10.15, iOS 13.0, *)
 public class ServerObjectFetcher<Type: ServerObject> {
 	public var error: Error?
 	public var all: [Type] = []
