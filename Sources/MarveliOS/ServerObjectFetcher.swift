@@ -19,12 +19,12 @@ public class ServerObjectFetcher<Type: ServerObject> {
 	let completion: (ServerObjectFetcher) -> Void
 	var limit: Int
 	
-	init(limit: Int? = nil, completion: @escaping (ServerObjectFetcher) -> Void) {
+	public init(limit: Int? = nil, completion: @escaping (ServerObjectFetcher) -> Void) {
 		self.completion = completion
 		self.limit = limit ?? Int.max
 	}
 	
-	func run() {
+	public func run() {
 		self.fetch()
 	}
 	

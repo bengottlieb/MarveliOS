@@ -1,10 +1,11 @@
 import XCTest
 @testable import MarveliOS
 
-@available(OSX 10.15, *)
+@available(OSX 10.15, iOS 13.0, *)
 final class MarveliOSTests: XCTestCase {
 	override func setUp() {
 		MarvelAPI.instance.loadKeys(public: "", private: "")
+		MarvelAPI.instance.loadKeys(public: "f4c074c5e1e9b267ec7c1628481f5689", private: "809b165877c8e213c316cf0c476fb0bad1205505")
 	}
 	
     func testExample() {
