@@ -15,18 +15,18 @@ final class MarveliOSTests: XCTestCase {
 	
 	func testGetCharacters() {
 		let expectation = self.expectation(description: "Fetch Characters")
-		MarvelAPI.instance.fetchCharacters() { result in
-			switch result {
-			case .success(let characters):
-				print(characters)
-			case .failure(let error):
-				print("Error fetching characters: \(error)")
-				XCTFail()
-			}
-			expectation.fulfill()
-		}
 		
-		self.wait(for: [expectation], timeout: 30)
+		let limit = 50
+		ServerObjectFetcher<Character>(limit: limit) { fetcher in
+			if let err = fetcher.error {
+				print("Error fetching characters: \(err)")
+			} else if fetcher.all.count >= limit {
+				print(fetcher.all.map { $0.name })
+				expectation.fulfill()
+			}
+		}.run()
+		
+		self.wait(for: [expectation], timeout: 60)
 	}
 
     static var allTests = [

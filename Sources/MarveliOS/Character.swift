@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Character.swift
 //  
 //
 //  Created by Ben Gottlieb on 6/16/19.
@@ -8,7 +8,12 @@
 import Foundation
 import SwiftUI
 
-public struct Character: Codable, Identifiable {
+public protocol ServerObject: Codable {
+	static var serverPath: String { get }
+}
+
+public struct Character: ServerObject, Identifiable {
+	public static var serverPath: String { return "characters" }
 	public let id: Int
 	public let name: String
 	public let description: String
@@ -24,7 +29,7 @@ public struct URLInfo: Codable {
 	public let type: String
 }
 
-public struct PayloadWrapper<PayloadData: Codable>: Codable {
+public struct PayloadWrapper<PayloadData: ServerObject>: Codable {
 	public let code: Int
 	public let status: String?
 	public let attributionText: String?

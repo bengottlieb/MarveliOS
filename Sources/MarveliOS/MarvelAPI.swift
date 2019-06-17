@@ -30,31 +30,35 @@ public class MarvelAPI {
 	
 	let url = URL(string: "https://gateway.marvel.com:443/v1/public/")!
 	
-	func buildRequest(for endpoint: String) -> URLRequest? {
+	func buildRequest(for endpoint: String, params: [String: String] = [:]) throws -> URLRequest {
+		guard self.publicKey != "LOADED_BY_CONSUMER", self.privateKey != "LOADED_BY_CONSUMER", !self.publicKey.isEmpty, !self.privateKey.isEmpty else {
+			throw MarvelError.missingKeys
+		}
+
 		var components = URLComponents(url: self.url.appendingPathComponent(endpoint), resolvingAgainstBaseURL: true)
 		
 		self.timestamp += 1
 		let hash = "\(self.timestamp)\(self.privateKey)\(self.publicKey)"
 		
-		components?.queryItems = [URLQueryItem(name: "apikey", value: self.publicKey), URLQueryItem(name: "hash", value: "\(hash.MD5)"), URLQueryItem(name: "ts", value: "\(self.timestamp)")]
+		components?.queryItems = [URLQueryItem(name: "apikey", value: self.publicKey), URLQueryItem(name: "hash", value: "\(hash.MD5)"), URLQueryItem(name: "ts", value: "\(self.timestamp)")] + params.map { URLQueryItem(name: $0, value: $1) }
 		
-		guard let url = components?.url else { return nil }
+		guard let url = components?.url else { throw MarvelError.unableToBuildRequest }
 		let request = URLRequest(url: url)
 		
 		return request
 	}
 	
 	public func fetch<ResultKind: Codable>(endpoint: String, completion: @escaping (Result<ResultKind, Error>) -> Void) {
-		guard self.publicKey != "LOADED_BY_CONSUMER", self.privateKey != "LOADED_BY_CONSUMER", !self.publicKey.isEmpty, !self.privateKey.isEmpty else {
-			completion(.failure(MarvelError.missingKeys))
-			return
+		do {
+			let request = try self.buildRequest(for: endpoint)
+			self.fetch(request: request, completion: completion)
+		} catch {
+			completion(.failure(error))
 		}
 		
-		guard let request = self.buildRequest(for: endpoint) else {
-			completion(.failure(MarvelError.unableToBuildRequest))
-			return
-		}
-		
+	}
+	
+	public func fetch<ResultKind: Codable>(request: URLRequest, completion: @escaping (Result<ResultKind, Error>) -> Void) {
 		let task = self.session.dataTask(with: request) { potential, response, error in
 			if let err = error {
 				completion(.failure(err))
