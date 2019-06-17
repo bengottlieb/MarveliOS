@@ -18,19 +18,19 @@ public struct Character: Codable {
 	let comics: ResourceList<ComicSummary>?
 }
 
-struct URLInfo: Codable {
+public struct URLInfo: Codable {
 	let url: URL
 	let type: String
 }
 
-struct PayloadWrapper<PayloadData: Codable>: Codable {
+public struct PayloadWrapper<PayloadData: Codable>: Codable {
 	let code: Int
 	let status: String?
 	let attributionText: String?
 	let data: PagedWrapper
 	let etag: String?
 	
-	struct PagedWrapper: Codable {
+	public struct PagedWrapper: Codable {
 		let offset: Int
 		let limit: Int
 		let total: Int
@@ -39,24 +39,24 @@ struct PayloadWrapper<PayloadData: Codable>: Codable {
 	}
 }
 
-struct ImageInfo: Codable {
+public struct ImageInfo: Codable {
 	let path: String
 	let `extension`: String
 }
 
-struct ResourceList<Element: Codable>: Codable {
+public struct ResourceList<Element: Codable>: Codable {
 	let available: Int?
 	let returned: Int?
 	let collectionURI: URL?
 	let items: [Element]
 }
 
-struct ComicSummary: Codable {
+public struct ComicSummary: Codable {
 	let resourceURI: URL?
 	let name: String!
 }
 
-struct ServerError: Codable {
+public struct ServerError: Codable {
 	let code: String
 	let message: String
 }

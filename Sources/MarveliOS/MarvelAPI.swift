@@ -81,7 +81,7 @@ public class MarvelAPI {
 		task.resume()
 	}
 	
-	func fetchCharacters(completion: @escaping (Result<[Character], Error>) -> Void) {
+	public func fetchCharacters(completion: @escaping (Result<[Character], Error>) -> Void) {
 		self.fetch(endpoint: "characters") { (result: Result<PayloadWrapper<Character>, Error>) in
 			switch result {
 			case .failure(let err): completion(.failure(err))
